@@ -169,7 +169,7 @@ const Testimonials: React.FC = () => {
                   </div>
 
                   <p className="text-lg text-gray-200 italic mb-4 leading-relaxed group-hover:text-green-100 transition-colors duration-300">
-                    "{testimonial.quote}"
+                    {testimonial.quote}
                   </p>
 
                   {/* Rating Stars */}
