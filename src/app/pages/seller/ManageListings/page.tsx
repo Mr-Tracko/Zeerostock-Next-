@@ -1,0 +1,277 @@
+'use client';
+
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../components/ui/card';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../components/ui/table';
+import { Button } from '../../../components/ui/button';
+import { Badge } from '../../../components/ui/badge';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../../../components/ui/dropdown-menu';
+import { Plus, Edit, Trash2, Eye, PauseCircle, PlayCircle, MoreHorizontal } from 'lucide-react';
+import SellerSidebar from "../../../components/SellerSidebar";
+
+// Type definitions
+interface Listing {
+  id: string;
+  productName: string;
+  category: string;
+  price: string;
+  quantity: string;
+  status: 'Active' | 'Paused' | 'Draft';
+  views: number;
+  offers: number;
+  lastUpdated: string;
+}
+
+type StatusVariant = 'default' | 'outline' | 'secondary';
+
+const ManageListingsPage: React.FC = () => {
+  const router = useRouter();
+
+  // Dummy data for seller listings
+  const listings: Listing[] = [
+    {
+      id: 'LST-001',
+      productName: 'High-Grade Steel Coils',
+      category: 'Raw Materials',
+      price: '₹55,000 / Ton',
+      quantity: '100 Tons',
+      status: 'Active',
+      views: 1250,
+      offers: 5,
+      lastUpdated: '2024-07-20',
+    },
+    {
+      id: 'LST-002',
+      productName: 'Electronic Microcontrollers',
+      category: 'Components',
+      price: '₹120 / Unit',
+      quantity: '5000 Units',
+      status: 'Active',
+      views: 890,
+      offers: 12,
+      lastUpdated: '2024-07-18',
+    },
+    {
+      id: 'LST-003',
+      productName: 'Industrial Bearings (SKF)',
+      category: 'Machinery Parts',
+      price: '₹800 / Piece',
+      quantity: '500 Pieces',
+      status: 'Paused',
+      views: 340,
+      offers: 2,
+      lastUpdated: '2024-07-15',
+    },
+    {
+      id: 'LST-004',
+      productName: 'Plastic Granules (HDPE)',
+      category: 'Raw Materials',
+      price: '₹95 / Kg',
+      quantity: '20 Tons',
+      status: 'Draft',
+      views: 0,
+      offers: 0,
+      lastUpdated: '2024-07-10',
+    },
+    {
+      id: 'LST-005',
+      productName: 'CNC Machine Spares',
+      category: 'Machinery',
+      price: '₹15,000 / Lot',
+      quantity: '1 Lot',
+      status: 'Active',
+      views: 560,
+      offers: 7,
+      lastUpdated: '2024-07-05',
+    },
+  ];
+
+  const getStatusVariant = (status: Listing['status']): StatusVariant => {
+    switch (status) {
+      case 'Active':
+        return 'default'; // Will be styled as green
+      case 'Paused':
+        return 'outline'; // Will be styled as orange/yellow
+      case 'Draft':
+        return 'secondary'; // Will be styled as gray
+      default:
+        return 'default';
+    }
+  };
+
+  const getStatusClasses = (status: Listing['status']): string => {
+    switch (status) {
+      case 'Active':
+        return 'bg-green-500/20 text-green-400 border-green-500/30';
+      case 'Paused':
+        return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
+      case 'Draft':
+        return 'bg-gray-500/20 text-gray-400 border-gray-500/30';
+      default:
+        return 'bg-green-500/20 text-green-400 border-green-500/30';
+    }
+  };
+
+  const handleEdit = (id: string): void => {
+    console.log('Editing listing:', id);
+    // In a real app, navigate to an edit listing page, pre-filling data
+    router.push(`/seller/edit-listing/${id}`);
+  };
+
+  const handleToggleStatus = (id: string, currentStatus: Listing['status']): void => {
+    console.log(`Toggling status for ${id} from ${currentStatus}`);
+    // In a real app, dispatch Redux action or API call to update status
+    alert(`Listing ${id} status toggled!`); // Replace with Shadcn Toast/Dialog
+  };
+
+  const handleDelete = (id: string): void => {
+    if (window.confirm(`Are you sure you want to delete listing ${id}? This action cannot be undone.`)) { // Replace with Shadcn AlertDialog
+      console.log('Deleting listing:', id);
+      // In a real app, dispatch Redux action or API call to delete listing
+      alert(`Listing ${id} deleted.`); // Replace with Shadcn Toast/Dialog
+    }
+  };
+
+  const handleNavigateToNewListing = (): void => {
+    router.push('/seller/list-new-item');
+  };
+
+  const handleViewPublicListing = (id: string): void => {
+    router.push(`/product/${id}`);
+  };
+
+  return (
+    <div className="min-h-screen bg-white p-6 flex">
+      {/* Sidebar fixed width */}
+      <div className="w-64">
+        <SellerSidebar/>
+      </div>
+
+      {/* Main content takes remaining width */}
+      <div className="flex-1 max-w-7xl mx-auto space-y-8 pl-6">
+        <Card className="p-6 rounded-lg shadow-lg bg-gray-800 border-gray-700">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-2xl font-bold text-white">Manage Listings</CardTitle>
+            <CardDescription className="text-gray-300">
+              View, edit, and manage your active, paused, and drafted inventory listings.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex justify-end mb-4">
+              <Button
+                className="bg-green-600 hover:bg-green-700 text-white rounded-md py-2 transition-colors duration-200"
+                onClick={handleNavigateToNewListing}
+              >
+                <Plus className="h-4 w-4 mr-2" /> Add New Listing
+              </Button>
+            </div>
+
+            {listings.length === 0 ? (
+              <div className="text-center py-12 text-gray-400">
+                <p className="text-lg mb-4">You have no listings yet.</p>
+                <Button 
+                  className="bg-green-600 hover:bg-green-700 text-white"
+                  onClick={handleNavigateToNewListing}
+                >
+                  Create Your First Listing
+                </Button>
+              </div>
+            ) : (
+              <div className="bg-gray-800 rounded-lg border border-gray-700">
+                <Table>
+                  <TableHeader>
+                    <TableRow className="border-gray-700 hover:bg-gray-700/50">
+                      <TableHead className="text-gray-300 font-semibold">Product Name</TableHead>
+                      <TableHead className="text-gray-300 font-semibold">Category</TableHead>
+                      <TableHead className="text-gray-300 font-semibold">Price</TableHead>
+                      <TableHead className="text-gray-300 font-semibold">Quantity</TableHead>
+                      <TableHead className="text-gray-300 font-semibold">Status</TableHead>
+                      <TableHead className="text-gray-300 font-semibold">Views</TableHead>
+                      <TableHead className="text-gray-300 font-semibold">Offers</TableHead>
+                      <TableHead className="text-gray-300 font-semibold">Last Updated</TableHead>
+                      <TableHead className="text-right text-green-500 font-semibold">Actions</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {listings.map((listing: Listing) => (
+                      <TableRow key={listing.id} className="border-gray-700 hover:bg-gray-700/30 transition-colors duration-150">
+                        <TableCell className="font-medium text-green-500">{listing.productName}</TableCell>
+                        <TableCell className="text-gray-300">{listing.category}</TableCell>
+                        <TableCell className="text-gray-300">{listing.price}</TableCell>
+                        <TableCell className="text-gray-300">{listing.quantity}</TableCell>
+                        <TableCell>
+                          <Badge 
+                            className={`rounded-full px-3 py-1 text-sm font-medium border ${getStatusClasses(listing.status)}`}
+                          >
+                            {listing.status}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="text-gray-300">{listing.views}</TableCell>
+                        <TableCell className="text-gray-300">{listing.offers}</TableCell>
+                        <TableCell className="text-gray-300">{listing.lastUpdated}</TableCell>
+                        <TableCell className="text-right">
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button 
+                                variant="ghost" 
+                                className="h-8 w-8 p-0 text-gray-400 hover:text-white hover:bg-gray-700"
+                              >
+                                <span className="sr-only">Open menu</span>
+                                <MoreHorizontal className="h-4 w-4" />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent 
+                              align="end" 
+                              className="bg-gray-800 border-gray-700 text-gray-200"
+                            >
+                              <DropdownMenuItem 
+                                onClick={() => handleViewPublicListing(listing.id)}
+                                className="hover:bg-gray-700 focus:bg-gray-700 cursor-pointer"
+                              >
+                                <Eye className="h-4 w-4 mr-2" /> View Public Listing
+                              </DropdownMenuItem>
+                              <DropdownMenuItem 
+                                onClick={() => handleEdit(listing.id)}
+                                className="hover:bg-gray-700 focus:bg-gray-700 cursor-pointer"
+                              >
+                                <Edit className="h-4 w-4 mr-2" /> Edit
+                              </DropdownMenuItem>
+                              {listing.status === 'Active' ? (
+                                <DropdownMenuItem 
+                                  onClick={() => handleToggleStatus(listing.id, 'Active')}
+                                  className="hover:bg-gray-700 focus:bg-gray-700 cursor-pointer"
+                                >
+                                  <PauseCircle className="h-4 w-4 mr-2" /> Pause
+                                </DropdownMenuItem>
+                              ) : (
+                                <DropdownMenuItem 
+                                  onClick={() => handleToggleStatus(listing.id, 'Paused')}
+                                  className="hover:bg-gray-700 focus:bg-gray-700 cursor-pointer"
+                                >
+                                  <PlayCircle className="h-4 w-4 mr-2" /> Activate
+                                </DropdownMenuItem>
+                              )}
+                              <DropdownMenuItem 
+                                className="text-red-400 hover:bg-gray-700 focus:bg-gray-700 cursor-pointer" 
+                                onClick={() => handleDelete(listing.id)}
+                              >
+                                <Trash2 className="h-4 w-4 mr-2" /> Delete
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default ManageListingsPage;
