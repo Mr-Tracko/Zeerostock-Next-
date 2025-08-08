@@ -33,7 +33,7 @@ const Navbar: React.FC<NavbarProps> = () => {
           <button className="no-underline text-gray-900 hover:text-green-300 text-sm font-medium transition-colors duration-200" onClick={() => {router.push('/')}}>
             Home
           </button>
-          <button className="no-underline text-gray-900 hover:text-green-300 text-sm font-medium transition-colors duration-200" onClick={() => {router.push('/')}}>
+          <button className="no-underline text-gray-900 hover:text-green-300 text-sm font-medium transition-colors duration-200" onClick={() => {router.push('/pages/public/HowItWorks')}}>
             How it works
           </button>
           <button 
