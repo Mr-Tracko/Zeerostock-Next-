@@ -94,7 +94,7 @@ const ROICalculator: React.FC = () => {
           <CardHeader className="text-center pb-6 pt-8">
             {/* Logo with geometric design */}
             <div className="flex justify-center mb-6">
-            <a href="/" className="flex items-center space-x-3">
+            <a className="flex items-center space-x-3">
               <img src="/logo3.png" alt="Logo" className="w-42 h-20 object-contain mt-0" />
             </a>
           </div>
