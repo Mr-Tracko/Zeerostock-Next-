@@ -171,7 +171,7 @@ const SearchInventoryPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex">
+    <div className="min-h-screen bg-gradient-to-r from-green-100 to-white flex">
       {/* Sidebar section */}
       <div className="w-64 m-5">
         <BuyerSidebar />
@@ -181,12 +181,12 @@ const SearchInventoryPage: React.FC = () => {
       <div className="flex-1 ml-13 p-6">
         <div className="max-w-7xl mx-auto space-y-8">
           {/* Search Bar and Filters */}
-          <Card className="bg-gray-800 border-gray-900/30 rounded-lg shadow-xl shadow-green-500/10">
+          <Card className="bg-gradient-to-br from-purple-100 via-gray-300 to-purple-2000 border-gray-900/30 rounded-lg shadow-xl shadow-green-500/10">
             <CardHeader className="pb-4 border-b border-gray-900/20">
-              <CardTitle className="text-2xl font-bold text-white flex items-center">
-                <Search className="h-6 w-6 mr-2 text-green-400" /> Search Inventory
+              <CardTitle className="text-2xl font-bold text-gray-900 flex items-center">
+                <Search className="h-6 w-6 mr-2 text-gray-900" /> Search Inventory
               </CardTitle>
-              <CardDescription className="text-green-100">
+              <CardDescription className="text-green-900">
                 Find the excess manufacturing inventory you need.
               </CardDescription>
             </CardHeader>
@@ -198,12 +198,12 @@ const SearchInventoryPage: React.FC = () => {
                   placeholder="Search by part number, category, or keyword..."
                   value={filters.searchQuery}
                   onChange={handleSearchInputChange}
-                  className="flex-grow bg-gray-700 border-gray-900/40 text-white placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/50 rounded-md px-4 py-2"
+                  className="flex-grow bg-white border-gray-900/40 text-gray-600 placeholder:text-gray-400 focus:border-gray-400 focus:ring-gray-400/50 rounded-md px-4 py-2"
                   aria-label="Search inventory"
                 />
                 <Button 
                   onClick={handleSearch}
-                  className="shrink-0 bg-green-600 hover:bg-green-700 text-white rounded-md px-6 py-2 font-semibold transition-colors"
+                  className="shrink-0 bg-white hover:bg-gray-700 text-gray-600 rounded-md px-6 py-2 font-semibold transition-colors"
                 >
                   Search
                 </Button>
@@ -212,7 +212,7 @@ const SearchInventoryPage: React.FC = () => {
               {/* Advanced Filters */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Select value={filters.category} onValueChange={handleCategoryChange}>
-                  <SelectTrigger className="bg-gray-700 border-gray-900/40 text-white focus:border-gray-900 focus:ring-green-400/50 rounded-md">
+                  <SelectTrigger className="bg-white border-gray-900/40 text-gray-700 focus:border-gray-900 focus:ring-green-400/50 rounded-md">
                     <SelectValue placeholder="Category" className="text-gray-400" />
                   </SelectTrigger>
                   <SelectContent className="bg-gray-700 border-gray-600">

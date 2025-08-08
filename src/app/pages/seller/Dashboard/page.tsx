@@ -25,7 +25,7 @@ interface ButtonProps {
   size?: 'default' | 'icon' | 'sm' | 'lg';
   className?: string;
   onClick?: () => void;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 interface CardProps {

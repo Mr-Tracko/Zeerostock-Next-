@@ -326,7 +326,7 @@ const HowItWorksPage: React.FC = () => {
             How <span className="text-green-800">ZeeroStock</span> Works
           </h1>
           <p className="mt-4 text-lg sm:text-xl text-green-700 max-w-3xl mx-auto leading-relaxed mb-10">
-            India's leading B2B marketplace for industrial surplus, raw materials, and machinery. 
+            The leading B2B marketplace in India for industrial surplus, raw materials, and machinery. 
             Connect, trade, and grow your business with confidence.
           </p>
           <div className=" flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
@@ -567,8 +567,8 @@ const HowItWorksPage: React.FC = () => {
           </div>
 
           <div className="mt-16 text-center">
-            <p className="text-green-100 mb-6 text-lg">
-              Ready to join India's most trusted inventory marketplace?
+            <p className="text-green-900 mb-6 text-lg">
+              Ready to join most trusted inventory marketplace of India?
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <Button className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-semibold shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300" onClick={() => handleNavigation('/login')}>

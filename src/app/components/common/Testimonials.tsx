@@ -130,7 +130,7 @@ const Testimonials: React.FC = () => {
             What Our <span className="text-green-400">Partners</span> Say
           </h2>
           <p className="text-lg text-green-100 max-w-3xl mx-auto">
-            Trusted by leading manufacturers and buyers across India. Join thousands of satisfied customers who've transformed their inventory management.
+            Trusted by leading manufacturers and buyers across India. Join thousands of satisfied customers who have transformed their inventory management.
           </p>
         </div>
 

@@ -25,7 +25,7 @@ const LoginPage: React.FC = () => {
         <CardHeader className="text-center pb-4 pt-8">
           {/* Logo with geometric design matching the dark theme */}
           <div className="flex justify-center mb-6">
-            <a href="/" className="flex items-center space-x-3">
+            <a className="flex items-center space-x-3">
               <img src="/logo3.png" alt="Logo" className="w-42 h-20 object-contain mt-0" />
             </a>
           </div>
@@ -67,7 +67,7 @@ const LoginPage: React.FC = () => {
                 <Label htmlFor="remember-me" className="text-sm text-green-600">Remember me</Label>
               </div>
               <a 
-                href="/forgot-password" 
+                
                 className="text-sm text-green-800 hover:text-green-300 hover:underline transition-colors" 
                 onClick={handleForgotPasswordClick}
               >
@@ -115,7 +115,7 @@ const LoginPage: React.FC = () => {
           <p className="mt-6 text-center text-sm text-green-100">
             Do not have an account?{' '}
             <a 
-              href="/register" 
+             
               className="text-green-800 hover:text-green-300 hover:underline font-medium transition-colors" 
               onClick={() => {router.push('/pages/public/Register')}}
             >

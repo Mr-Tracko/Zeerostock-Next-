@@ -52,7 +52,7 @@ const BuyerSidebar: React.FC = () => {
         {
             title: 'Product Details',
             icon: <FileText className="h-5 w-5 mr-3" />,
-            route: '/pages/buyer/product/:productId'
+            route: '/pages/buyer/ProductDetails'
         },
         {
             title: 'Watchlist',

@@ -19,7 +19,11 @@ interface Product {
   image: string;
 }
 
-interface NewArrivalsProps {}
+interface NewArrivalsProps {
+  id?: string; 
+  name?: string;    
+  email?: string; 
+}
 
 const NewArrivals: React.FC<NewArrivalsProps> = () => {
   const newProducts: Product[] = [

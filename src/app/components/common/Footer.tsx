@@ -84,7 +84,11 @@ import { Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
 
 // Type definitions
-interface FooterProps {}
+interface FooterProps {
+  id?: string;      
+  name?: string;   
+  email?: string; 
+}
 
 const Footer: React.FC<FooterProps> = () => {
   const router = useRouter();

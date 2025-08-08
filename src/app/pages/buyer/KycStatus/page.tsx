@@ -21,7 +21,11 @@ interface Document {
   file: string | null;
 }
 
-interface BuyerKycStatusPageProps {}
+interface BuyerKycStatusPageProps {
+  id: string;
+  name: string;
+  email: string;
+}
 
 const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
   const router = useRouter();

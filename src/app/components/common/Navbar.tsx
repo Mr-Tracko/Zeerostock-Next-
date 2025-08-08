@@ -5,7 +5,11 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 // Type definitions
-interface NavbarProps {}
+interface NavbarProps {
+  id: string;
+  name: string;
+  email: string;
+}
 
 const Navbar: React.FC<NavbarProps> = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);

@@ -20,7 +20,11 @@ interface BuyerProfile {
   kycVerified: boolean;
 }
 
-interface BuyerProfilePageProps {}
+interface BuyerProfilePageProps {
+  id: string;
+  name: string;
+  email: string;
+}
 
 const BuyerProfilePage: React.FC<BuyerProfilePageProps> = () => {
   const router = useRouter();
