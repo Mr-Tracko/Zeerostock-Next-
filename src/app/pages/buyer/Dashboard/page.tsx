@@ -97,7 +97,7 @@ const BuyerDashboardPage: React.FC = () => {
         <div className="flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold text-gradient-to-br from-gray-900 via-gray-800 to-gray-900 mb-2">Dashboard</h1>
-            <p className="text-gray-800 text-base">Welcome back, John. Here's what's happening with your account.</p>
+            <p className="text-gray-800 text-base">Welcome back, John. Here is what is happening with your account.</p>
           </div>
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="icon" className="rounded-full hover:bg-green-400">

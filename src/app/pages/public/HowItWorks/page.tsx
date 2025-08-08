@@ -133,7 +133,7 @@ const HowItWorksPage: React.FC = () => {
       journey: [
         {
           step: "Discovery",
-          action: "Rajesh searches online for 'surplus steel buyers India' and finds ZeeroStock",
+          action: "Rajesh searches online for (surplus steel buyers India) and finds ZeeroStock",
           outcome: "Discovers a platform specifically for industrial surplus trading",
           icon: <Search className="h-6 w-6" />
         },
@@ -157,7 +157,7 @@ const HowItWorksPage: React.FC = () => {
         },
         {
           step: "Secure Transactions",
-          action: "Uses ZeeroStock's escrow system for secure payments and logistics coordination",
+          action: "Uses ZeeroStock escrow system for secure payments and logistics coordination",
           outcome: "Receives payments on time, builds reputation score, gains repeat customers",
           icon: <DollarSign className="h-6 w-6" />
         }
@@ -220,7 +220,7 @@ const HowItWorksPage: React.FC = () => {
         {
           step: "Urgent Requirement",
           action: "Amit receives urgent request for specialized industrial components",
-          outcome: "Uses ZeeroStock's advanced search to quickly find available inventory",
+          outcome: "Uses our advanced search to quickly find available inventory",
           icon: <Clock className="h-6 w-6" />
         },
         {

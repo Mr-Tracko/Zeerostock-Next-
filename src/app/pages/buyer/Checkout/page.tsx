@@ -392,7 +392,7 @@ const BuyerCheckoutPage: React.FC = () => {
                     </Label>
                     {selectedPaymentMethod === 'net_banking' && (
                       <div className="p-4 border border-gray-600 rounded-lg bg-gray-700">
-                        <p className="text-gray-300">You will be redirected to your bank's website to complete the payment.</p>
+                        <p className="text-gray-300">You will be redirected to website of your bank to complete the payment.</p>
                       </div>
                     )}
 

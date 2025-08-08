@@ -35,7 +35,7 @@ const Testimonials: React.FC = () => {
     },
     {
       id: 2,
-      quote: "We found exactly what we needed at competitive prices. The platform's global reach helped us source materials we couldn't find locally.",
+      quote: "We found exactly what we needed at competitive prices. Global reach of the Platform helped us source materials we could not find locally.",
       author: "Rahul Verma",
       title: "Procurement Head, Bharat Manufacturing Co.",
       company: "Bharat Manufacturing",

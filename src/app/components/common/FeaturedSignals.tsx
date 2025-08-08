@@ -161,7 +161,7 @@ const FeaturedCategories: React.FC = () => {
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <p className="text-gray-900 mb-6">
-            Don't see your category? We have thousands more inventory types available.
+            Do not see your category? We have thousands more inventory types available.
           </p>
           <button
             className="px-8 py-3 bg-gradient-to-r from-gray-600 to-gray-800 hover:from-gray-700 hover:to-gray-800 text-white font-semibold rounded-lg shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300"

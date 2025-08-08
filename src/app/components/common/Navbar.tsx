@@ -21,11 +21,11 @@ const Navbar: React.FC<NavbarProps> = () => {
         {/* Logo S
         ection */}
         <div className="flex-shrink-0">
-          <a href="/" className="flex items-center space-x-3">
+          <button className="flex items-center space-x-3">
             {/* Logo image from public folder */}
-            <img src="/logo3.png" alt="Logo" className="w-42 h-10 object-contain" />
+            <img src="/logo3.png" alt="Logo" className="w-42 h-10 object-contain" onClick={() => {router.push('/')}}/>  
             <span className="text-white font-bold text-xl">ZeeroStock</span>
-          </a>
+          </button>
         </div>
 
         {/* Navigation Links (Hidden on small screens, shown on medium and up) */}
@@ -39,10 +39,10 @@ const Navbar: React.FC<NavbarProps> = () => {
           <button 
             className="no-underline text-gray-900 hover:text-green-300 text-sm font-medium transition-colors duration-200" onClick={handleClick}
           >
-            For Seller's
+            For Sellers
           </button>
           <button className="no-underline text-gray-900 hover:text-green-300 text-sm font-medium transition-colors duration-200" onClick={handleClick}>
-            For Buyer's
+            For Buyers
           </button>
           <button className="no-underline text-gray-900 hover:text-green-300 text-sm font-medium transition-colors duration-200" onClick={() => {router.push('/pages/public/RoiCalculator')}}>
             ROI Calculator
@@ -101,27 +101,30 @@ const Navbar: React.FC<NavbarProps> = () => {
       {/* Mobile Menu (Hidden by default, will be shown with state management) */}
       <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-800">
-          <Link href="/" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700">
+          <button className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700" onClick={() => {router.push('/')}}>
             Home
-          </Link>
-          <Link href="/how-it-works" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700">
-            How it's work
-          </Link>
-          <Link href="/for-sellers" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700">
-            For Seller's
-          </Link>
-          <Link href="/for-buyers" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700">
-            For Buyer's
-          </Link>
-          <Link href="/support" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700">
+          </button>
+          <button className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700" onClick={() => {router.push('/pages/public/HowItWorks`')}}>
+            How it works
+          </button>
+          <button className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700" onClick={() => {router.push('/pages/public/Login')}}>
+            For Sellers
+          </button>
+          <button className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700" onClick={() => {router.push('/pages/public/Login')}}>
+            For Buyers
+          </button>
+          <button className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700" onClick={() => {router.push('/pages/public/RoiCalculator')}}>
+            Roi Calculator
+          </button>
+          <button className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700" onClick={() => {router.push('/pages/public/Support')}}>
             Support
-          </Link>
-          <Link href="/login" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700">
+          </button>
+          <button className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-green-300 hover:bg-blue-700" onClick={() => {router.push('/pages/public/Login')}}>
             Login
-          </Link>
-          <Link href="/register" className="block w-full text-center px-3 py-2 rounded-md text-base font-medium text-white bg-green-500 hover:bg-green-600 mt-2">
+          </button>
+          <button className="block w-full text-center px-3 py-2 rounded-md text-base font-medium text-white bg-green-500 hover:bg-green-600 mt-2" onClick={() => {router.push('/pages/public/Register')}}>
             Register
-          </Link>
+          </button>
         </div>
       </div>
     </nav>

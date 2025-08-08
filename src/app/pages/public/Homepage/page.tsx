@@ -121,7 +121,7 @@ const HomePage: React.FC = () => {
           {/* Bottom CTA */}
           <div className="mt-16 text-center">
             <p className="text-gradient-to-br from-gray-900 via-gray-800 to-gray-900 mb-6 text-lg">
-              Ready to join India's most trusted inventory marketplace?
+              Ready to join most trusted inventory marketplace in India?
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <button

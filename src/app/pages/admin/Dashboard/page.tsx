@@ -67,7 +67,7 @@ const AdminDashboardPage = () => {
         <div className="flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold text-white mb-2">Admin Dashboard</h1>
-            <p className="text-gray-400 text-base">Welcome back, Administrator. Here's your system overview.</p>
+            <p className="text-gray-400 text-base">Welcome back, Administrator. Here is your system overview.</p>
           </div>
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="icon" className="rounded-full hover:bg-slate-800">

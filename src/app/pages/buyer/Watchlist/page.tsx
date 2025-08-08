@@ -193,7 +193,7 @@ const BuyerWatchlistPage: React.FC<BuyerWatchlistPageProps> = () => {
                 <CardContent className="p-12 text-center">
                   <Package className="h-16 w-16 mx-auto text-gray-500 mb-4" />
                   <h3 className="text-xl font-semibold text-white mb-2">Your watchlist is empty</h3>
-                  <p className="text-gray-400 mb-6">Start adding items to keep track of products you're interested in</p>
+                  <p className="text-gray-400 mb-6">Start adding items to keep track of products you are interested in</p>
                   <Button 
                     onClick={() => navigate('/search-inventory')}
                     className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
