@@ -126,13 +126,13 @@ const HomePage: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <button
                 className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-semibold rounded-lg shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300"
-                onClick={() => router.push('/login')}
+                onClick={() => router.push('/pages/public/Login')}
               >
                 Become a Partner
               </button>
               <button
                 className="px-8 py-3 border-2 border-green-400/30 text-green-400 hover:bg-green-400/10 bg-transparent hover:border-green-400/50 font-semibold rounded-lg transition-all duration-300"
-                onClick={() => router.push('/login')}
+                onClick={() => router.push('/pages/public/Login')}
               >
                 View Case Studies
               </button>
@@ -146,7 +146,7 @@ const HomePage: React.FC = () => {
               { text: 'Secure Platform', iconPath: 'M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z' },
               { text: 'Verified Partners', iconPath: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
             ].map((badge, idx) => (
-              <div key={idx} className="flex items-center space-x-2 bg-gray-800/40 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-700/50">
+              <div key={idx} className="flex items-center space-x-2 bg-gray-900/40 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-700/50">
                 <div className="w-6 h-6 bg-green-400/20 rounded-full flex items-center justify-center">
                   <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" clipRule="evenodd" d={badge.iconPath} />

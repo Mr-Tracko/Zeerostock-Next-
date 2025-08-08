@@ -20,7 +20,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-64px)] bg-gray-900 p-4">
+    <div className="flex items-center justify-center min-h-[calc(100vh-64px)] bg-gradient-to-r from-green-100 to-white p-4">
       <Card className="w-full max-w-sm rounded-2xl shadow-xl shadow-green-500/10 border border-gray-800 bg-white">
         <CardHeader className="text-center pb-4 pt-8">
           {/* Logo with geometric design matching the dark theme */}

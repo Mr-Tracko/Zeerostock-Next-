@@ -108,7 +108,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = () => {
   };
 
   return (
-    <section className="relative bg-white py-20 overflow-hidden">
+    <section className="relative bg-gradient-to-r from-green-100 to-white py-20 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-8">
         <div className="absolute top-16 left-16 w-36 h-36 border border-green-400/20 rounded-full"></div>

@@ -329,7 +329,7 @@ const HowItWorksPage: React.FC = () => {
             India's leading B2B marketplace for industrial surplus, raw materials, and machinery. 
             Connect, trade, and grow your business with confidence.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
+          <div className=" flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
             <button 
               className="w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-lg shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 bg-gradient-to-r from-gray-600 to-gray-500 hover:from-green-700 hover:to-green-600 text-white border-0" 
               onClick={() => handleNavigation('/login')}
@@ -440,7 +440,7 @@ const HowItWorksPage: React.FC = () => {
                       <div className="flex-grow">
                         <h5 className="text-xl font-semibold text-white mb-2">{step.step}</h5>
                         <p className="text-gray-300 mb-2">{step.action}</p>
-                        <p className="text-sm text-green-800 font-medium bg-green-400/10 p-3 rounded-lg border border-green-400/20">
+                        <p className="text-sm text-black font-medium bg-green-400/10 p-3 rounded-lg border border-green-400/20">
                           ✓ {step.outcome}
                         </p>
                       </div>

@@ -88,19 +88,18 @@ const ROICalculator: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white p-4">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-green-100 to-white p-4">
       <div className="w-full max-w-4xl">
-        <Card className="rounded-2xl shadow-xl shadow-green-500/10 border border-gray-800 bg-gray-800">
+        <Card className="rounded-2xl shadow-xl shadow-green-500/10 border border-gray-800 bg-white">
           <CardHeader className="text-center pb-6 pt-8">
             {/* Logo with geometric design */}
             <div className="flex justify-center mb-6">
-              <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-lg transform rotate-12 absolute shadow-lg shadow-green-500/30"></div>
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-400 rounded-lg transform -rotate-12 shadow-lg shadow-green-500/30"></div>
-              </div>
-            </div>
-            <CardTitle className="text-3xl font-bold text-white mb-2">ROI Calculator</CardTitle>
-            <CardDescription className="text-green-100 text-lg">
+            <a href="/" className="flex items-center space-x-3">
+              <img src="/logo3.png" alt="Logo" className="w-42 h-20 object-contain mt-0" />
+            </a>
+          </div>
+            <CardTitle className="text-3xl font-bold text-gray-900 mb-2">ROI Calculator</CardTitle>
+            <CardDescription className="text-gray-700 text-lg">
               Calculate your return on investment with ZeeroStock
             </CardDescription>
           </CardHeader>
@@ -109,71 +108,71 @@ const ROICalculator: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Input Form */}
               <div className="space-y-5">
-                <h3 className="text-xl font-semibold text-green-200 mb-4">Investment Details</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Investment Details</h3>
                 
                 {error && (
-                  <div className="bg-red-900/20 border border-red-700/50 text-red-300 px-4 py-3 rounded-md text-sm">
+                  <div className="bg-white border-red-700/50 text-red-300 px-4 py-3 rounded-md text-sm">
                     {error}
                   </div>
                 )}
 
                 <div className="space-y-2">
-                  <Label htmlFor="industry" className="text-sm font-medium text-green-200">Name of Industry</Label>
+                  <Label htmlFor="industry" className="text-sm font-medium text-gray-700">Name of Industry</Label>
                   <Input
                     id="industry"
                     type="text"
                     placeholder="e.g., Electronics, Fashion, Automotive"
-                    className="rounded-lg border-gray-700 bg-gray-700 text-white placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/50 h-11"
+                    className="rounded-lg border-black bg-white text-gray-700 placeholder:text-gray-500 focus:border-green-400 focus:ring-green-400/50 h-11"
                     value={formData.industryName}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('industryName', e.target.value)}
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="stock-value" className="text-sm font-medium text-green-200">Estimated Stock Value (₹)</Label>
+                  <Label htmlFor="stock-value" className="text-sm font-medium text-gray-700">Estimated Stock Value (₹)</Label>
                   <Input
                     id="stock-value"
                     type="number"
                     placeholder="50000"
-                    className="rounded-lg border-gray-700 bg-gray-700 text-white placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/50 h-11"
+                    className="rounded-lg border-black bg-white text-gray-700 placeholder:text-gray-500 focus:border-green-400 focus:ring-green-400/50 h-11"
                     value={formData.estimatedStockValue}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('estimatedStockValue', e.target.value)}
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="units" className="text-sm font-medium text-green-200">Units of Stock</Label>
+                  <Label htmlFor="units" className="text-sm font-medium text-grray-700">Units of Stock</Label>
                   <Input
                     id="units"
                     type="number"
                     placeholder="1000"
-                    className="rounded-lg border-gray-700 bg-gray-700 text-white placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/50 h-11"
+                    className="rounded-lg border-black bg-white text-gray-700 placeholder:text-gray-500 focus:border-green-400 focus:ring-green-400/50 h-11"
                     value={formData.unitsOfStock}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('unitsOfStock', e.target.value)}
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="depreciation" className="text-sm font-medium text-green-200">Depreciation (%)</Label>
+                  <Label htmlFor="depreciation" className="text-sm font-medium text-green-700">Depreciation (%)</Label>
                   <Input
                     id="depreciation"
                     type="number"
                     step="0.1"
                     placeholder="15"
-                    className="rounded-lg border-gray-700 bg-gray-700 text-white placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/50 h-11"
+                    className="rounded-lg border-black bg-white text-gray-700 placeholder:text-gray-500 focus:border-green-400 focus:ring-green-400/50 h-11"
                     value={formData.depreciation}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('depreciation', e.target.value)}
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="years" className="text-sm font-medium text-green-200">Years of Inventory Hold</Label>
+                  <Label htmlFor="years" className="text-sm font-medium text-gray-700">Years of Inventory Hold</Label>
                   <Input
                     id="years"
                     type="number"
                     step="0.1"
                     placeholder="2"
-                    className="rounded-lg border-gray-700 bg-gray-700 text-white placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/50 h-11"
+                    className="rounded-lg border-black bg-white text-gray-700 placeholder:text-gray-500 focus:border-green-400 focus:ring-green-400/50 h-11"
                     value={formData.yearsOfInventoryHold}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('yearsOfInventoryHold', e.target.value)}
                   />
@@ -181,7 +180,7 @@ const ROICalculator: React.FC = () => {
 
                 <Button 
                   onClick={calculateROI}
-                  className="w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white rounded-lg py-3 text-base font-semibold shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-200 mt-6"
+                  className="w-full bg-gradient-to-r from-gray-700 to-gray-800 text-white rounded-lg py-3 text-base font-semibold shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-200 mt-6"
                 >
                   Calculate My ROI
                 </Button>
@@ -189,13 +188,13 @@ const ROICalculator: React.FC = () => {
 
               {/* Results Display */}
               <div className="space-y-5">
-                <h3 className="text-xl font-semibold text-green-200 mb-4">ROI Analysis</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">ROI Analysis</h3>
                 
                 {result ? (
-                  <div className="bg-gray-700/50 rounded-xl p-6 border border-gray-600">
+                  <div className="bg-gray-700/50 rounded-xl p-6 border border-gray-700">
                     <div className="space-y-4">
                       <div className="text-center mb-6">
-                        <h4 className="text-lg font-semibold text-white mb-2">Industry: {result.industry}</h4>
+                        <h4 className="text-lg font-semibold text-green-900 mb-2">Industry: {result.industry}</h4>
                         <p className="text-sm text-gray-400">{result.units.toLocaleString()} units analyzed</p>
                       </div>
 
@@ -219,14 +218,14 @@ const ROICalculator: React.FC = () => {
                       <div className="border-t border-gray-600 pt-4">
                         <div className="text-center">
                           <p className="text-sm text-gray-400 mb-2">Expected ZeeroStock Value</p>
-                          <p className="text-3xl font-bold text-green-400">
+                          <p className="text-3xl font-bold text-gray-900">
                             {formatCurrency(result.expectedZeeroStockValue)}
                           </p>
                         </div>
                       </div>
 
                       <div className="bg-green-900/20 border border-green-700/50 rounded-lg p-4 mt-4">
-                        <p className="text-green-300 text-sm text-center">
+                        <p className="text-gray-700 text-sm text-center">
                           🎉 This is the expected value you can receive from ZeeroStock after accounting for depreciation over time.
                         </p>
                       </div>

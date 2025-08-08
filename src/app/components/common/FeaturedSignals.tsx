@@ -61,7 +61,7 @@ const FeaturedCategories: React.FC = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-20 overflow-hidden">
+    <section className="relative bg-gradient-to-r from-green-100 to-white py-20 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-20 w-40 h-40 border border-green-400/20 rounded-full"></div>
@@ -81,10 +81,10 @@ const FeaturedCategories: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
-            Featured <span className="text-green-400">Categories</span>
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-green-900 mb-4">
+            Featured <span className="text-gray-900">Categories</span>
           </h2>
-          <p className="text-lg text-green-100 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Explore our most popular inventory categories and discover quality excess materials from trusted manufacturers worldwide.
           </p>
         </div>
@@ -94,10 +94,10 @@ const FeaturedCategories: React.FC = () => {
           {categories.map((category, index) => (
             <Card
               key={index}
-              className="group relative overflow-hidden bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 hover:border-green-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/20 cursor-pointer"
+              className="group relative overflow-hidden bg-gradient-to-br from-purple-100 via-gray-300 to-purple-200 backdrop-blur-sm border border-gray-700/50 hover:border-green-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/20 cursor-pointer"
             >
               {/* Background Image */}
-              <div className="absolute inset-0 opacity-10 group-hover:opacity-15 transition-opacity duration-300">
+              <div className="absolute inset-0 opacity-25 group-hover:opacity-15 transition-opacity duration-300">
                 <img
                   src={category.image}
                   alt={category.name}
@@ -116,7 +116,7 @@ const FeaturedCategories: React.FC = () => {
 
               <CardContent className="relative p-8 h-full flex flex-col">
                 <div className="mb-6 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-full flex items-center justify-center border border-green-400/30 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full flex items-center justify-center border border-green-400/30 group-hover:scale-110 transition-transform duration-300">
                     <span className="text-2xl filter grayscale group-hover:grayscale-0 transition-all duration-300">
                       {category.icon}
                     </span>
@@ -124,16 +124,16 @@ const FeaturedCategories: React.FC = () => {
                 </div>
 
                 <div className="flex-grow text-center">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-100 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-700 transition-colors duration-300">
                     {category.name}
                   </h3>
-                  <p className="text-gray-300 group-hover:text-green-100 transition-colors duration-300 leading-relaxed">
+                  <p className="text-gray-700 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed">
                     {category.description}
                   </p>
                 </div>
 
                 <div className="mt-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <div className="flex items-center text-green-400 text-sm font-semibold">
+                  <div className="flex items-center text-gray-900 text-sm font-semibold">
                     <span>Explore Category</span>
                     <svg
                       className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
@@ -160,12 +160,12 @@ const FeaturedCategories: React.FC = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <p className="text-green-100 mb-6">
+          <p className="text-gray-900 mb-6">
             Don't see your category? We have thousands more inventory types available.
           </p>
           <button
-            className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-semibold rounded-lg shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300"
-            onClick={() => router.push('/login')}
+            className="px-8 py-3 bg-gradient-to-r from-gray-600 to-gray-800 hover:from-gray-700 hover:to-gray-800 text-white font-semibold rounded-lg shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300"
+            onClick={() => router.push('/pages/public/Login')}
           >
             View All Categories
           </button>

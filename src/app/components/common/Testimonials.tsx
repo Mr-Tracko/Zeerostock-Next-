@@ -95,11 +95,11 @@ const Testimonials: React.FC = () => {
   const router = useRouter();
 
   const handleGetStarted = (): void => {
-    router.push('/login');
+    router.push('/pages/public/Login');
   };
 
   const handleReadReviews = (): void => {
-    router.push('/login');
+    router.push('/pages/public/Login');
   };
 
   const getInitials = (name: string): string => {

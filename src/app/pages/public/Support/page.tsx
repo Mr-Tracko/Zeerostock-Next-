@@ -105,7 +105,7 @@ const Button: React.FC<ButtonProps> = ({
 };
 
 const Card: React.FC<CardProps> = ({ children, className = "" }) => (
-  <div className={`rounded-lg border bg-gray-800 border-green-500/30 text-card-foreground shadow-sm ${className}`}>
+  <div className={`rounded-lg border bg-gradient-to-r from-green-100 to-white border-green-500/30 text-card-foreground shadow-sm ${className}`}>
     {children}
   </div>
 );
@@ -131,14 +131,14 @@ const Input: React.FC<InputProps> = ({ className = "", ...props }) => (
 
 const Textarea: React.FC<TextareaProps> = ({ className = "", ...props }) => (
   <textarea
-    className={`flex min-h-[80px] w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent ${className}`}
+    className={`flex min-h-[80px] w-full rounded-md border border-gray-600 bg-white px-3 py-2 text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent ${className}`}
     {...props}
   />
 );
 
 const Select: React.FC<SelectProps> = ({ children, className = "", ...props }) => (
   <select
-    className={`flex h-10 w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent ${className}`}
+    className={`flex h-10 w-full rounded-md border border-gray-600 bg-gradient-to-r from-green-100 to-white px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent ${className}`}
     {...props}
   >
     {children}
@@ -217,11 +217,11 @@ const SupportPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-gray-800 border-b border-green-500/30">
+      <div className="bg-gradient-to-r from-green-100 to-white border-b border-green-500/30">
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-white mb-4">Support Center</h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">Support Center</h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Get help with your industrial marketplace experience. We&apos;re here to support your business growth.
             </p>
           </div>
@@ -234,28 +234,28 @@ const SupportPage: React.FC = () => {
           <Card className="hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200">
             <CardContent className="p-6 text-center">
               <MessageCircle className="h-12 w-12 text-green-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">Live Chat</h3>
-              <p className="text-gray-300 mb-4">Get instant help from our support team</p>
-              <Button className="w-full">Start Chat</Button>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Live Chat</h3>
+              <p className="text-gray-700 mb-4">Get instant help from our support team</p>
+              <Button className="w-full text-black">Start Chat</Button>
             </CardContent>
           </Card>
 
           <Card className="hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200">
             <CardContent className="p-6 text-center">
               <Phone className="h-12 w-12 text-green-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">Phone Support</h3>
-              <p className="text-gray-300 mb-2">+91 1800-123-4567</p>
-              <p className="text-sm text-gray-400 mb-4">Mon-Fri: 9 AM - 6 PM IST</p>
-              <Button variant="outline" className="w-full">Call Now</Button>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Phone Support</h3>
+              <p className="text-gray-700 mb-2">+91 1800-123-4567</p>
+              <p className="text-sm text-gray-700 mb-4">Mon-Fri: 9 AM - 6 PM IST</p>
+              <Button className="w-full text-black">Call Now</Button>
             </CardContent>
           </Card>
 
           <Card className="hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200">
             <CardContent className="p-6 text-center">
               <Mail className="h-12 w-12 text-green-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">Email Support</h3>
-              <p className="text-gray-300 mb-4">info@zeerostock.com</p>
-              <Button variant="outline" className="w-full">Send Email</Button>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Email Support</h3>
+              <p className="text-gray-700 mb-4">info@zeerostock.com</p>
+              <Button  className="w-full text-black">Send Email</Button>
             </CardContent>
           </Card>
         </div>
@@ -266,15 +266,15 @@ const SupportPage: React.FC = () => {
           <div className="lg:col-span-2">
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center">
-                  <HelpCircle className="h-6 w-6 text-green-400 mr-2" />
+                <CardTitle className="flex items-center text-gray-900 important">
+                  <HelpCircle className="h-6 w-6 text-gray-900 mr-2" />
                   Frequently Asked Questions
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 {/* Search FAQ */}
                 <div className="relative mb-6">
-                  <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <Search className="absolute left-3 top-3 h-4 w-4 text-gray-700" />
                   <Input
                     placeholder="Search FAQ..."
                     value={searchQuery}
@@ -291,8 +291,8 @@ const SupportPage: React.FC = () => {
                       onClick={() => setSelectedCategory(category as keyof FAQData)}
                       className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                         selectedCategory === category
-                          ? 'bg-green-600 text-white'
-                          : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                          ? 'bg-gradient-to-r from-green-100 to-white text-gray-800'
+                          : 'bg-gradient-to-r from-green-100 to-white text-gray-800 hover:bg-gray-600'
                       }`}
                     >
                       {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -332,27 +332,27 @@ const SupportPage: React.FC = () => {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center text-lg">
-                  <BookOpen className="h-5 w-5 text-green-400 mr-2" />
+                  <BookOpen className="h-5 w-5 text-gray-900 mr-2" />
                   Resources
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <a href="#" className="flex items-center text-green-300 hover:text-green-200 transition-colors">
+                <a href="#" className="flex items-center text-gray-800 hover:text-gray-700 transition-colors">
                   <FileText className="h-4 w-4 mr-2" />
                   User Guide
                   <ExternalLink className="h-3 w-3 ml-auto" />
                 </a>
-                <a href="#" className="flex items-center text-green-300 hover:text-green-200 transition-colors">
+                <a href="#" className="flex items-center text-gray-800 hover:text-gray-700 transition-colors">
                   <Video className="h-4 w-4 mr-2" />
                   Video Tutorials
                   <ExternalLink className="h-3 w-3 ml-auto" />
                 </a>
-                <a href="#" className="flex items-center text-green-300 hover:text-green-200 transition-colors">
+                <a href="#" className="flex items-center text-gray-800 hover:text-gray-700 transition-colors">
                   <Download className="h-4 w-4 mr-2" />
                   Mobile App
                   <ExternalLink className="h-3 w-3 ml-auto" />
                 </a>
-                <a href="#" className="flex items-center text-green-300 hover:text-green-200 transition-colors">
+                <a href="#" className="flex items-center text-gray-800 hover:text-gray-700 transition-colors">
                   <Shield className="h-4 w-4 mr-2" />
                   Security Guide
                   <ExternalLink className="h-3 w-3 ml-auto" />
@@ -363,27 +363,27 @@ const SupportPage: React.FC = () => {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center text-lg">
-                  <Clock className="h-5 w-5 text-green-400 mr-2" />
+                  <Clock className="h-5 w-5 text-gray-900 mr-2" />
                   Support Hours
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-300">Monday - Friday</span>
-                  <span className="text-green-300">9 AM - 6 PM IST</span>
+                  <span className="text-gray-700">Monday - Friday</span>
+                  <span className="text-gray-700">9 AM - 6 PM IST</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-300">Saturday</span>
-                  <span className="text-green-300">10 AM - 4 PM IST</span>
+                  <span className="text-gray-700">Saturday</span>
+                  <span className="text-green-700">10 AM - 4 PM IST</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-300">Sunday</span>
-                  <span className="text-gray-400">Closed</span>
+                  <span className="text-gray-700">Sunday</span>
+                  <span className="text-gray-700">Closed</span>
                 </div>
                 <div className="pt-2 border-t border-gray-700">
                   <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
-                    <span className="text-xs text-gray-300">Emergency support available 24/7</span>
+                    <CheckCircle className="h-4 w-4 text-gray-900 mr-2" />
+                    <span className="text-xs text-gray-800">Emergency support available 24/7</span>
                   </div>
                 </div>
               </CardContent>
@@ -394,18 +394,19 @@ const SupportPage: React.FC = () => {
         {/* Contact Form */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center">
-              <Send className="h-6 w-6 text-green-400 mr-2" />
+            <CardTitle className="flex items-center text-gray-900">
+              <Send className="h-6 w-6 text-gray-900 mr-2" />
               Contact Support
             </CardTitle>
-            <p className="text-gray-300">Can&apos;t find what you&apos;re looking for? Send us a detailed message.</p>
+            <p className="text-gray-700">Can&apos;t find what you&apos;re looking for? Send us a detailed message.</p>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleContactSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-green-200 mb-2">Name</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
                   <Input
+                  className='bg-white'
                     required
                     value={contactForm.name}
                     onChange={(e) => handleFormChange('name', e.target.value)}
@@ -413,8 +414,9 @@ const SupportPage: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-green-200 mb-2">Email</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
                   <Input
+                  className='bg-white'
                     type="email"
                     required
                     value={contactForm.email}
@@ -426,7 +428,7 @@ const SupportPage: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-green-200 mb-2">Category</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
                   <Select
                     value={contactForm.category}
                     onChange={(e) => handleFormChange('category', e.target.value as ContactForm['category'])}
@@ -439,7 +441,7 @@ const SupportPage: React.FC = () => {
                   </Select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-green-200 mb-2">Priority</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Priority</label>
                   <Select
                     value={contactForm.priority}
                     onChange={(e) => handleFormChange('priority', e.target.value as ContactForm['priority'])}
@@ -453,8 +455,9 @@ const SupportPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-green-200 mb-2">Subject</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
                 <Input
+                className='bg-white'
                   required
                   value={contactForm.subject}
                   onChange={(e) => handleFormChange('subject', e.target.value)}
@@ -463,7 +466,7 @@ const SupportPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-green-200 mb-2">Message</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
                 <Textarea
                   required
                   rows={5}
@@ -475,7 +478,7 @@ const SupportPage: React.FC = () => {
 
               <div className="flex items-start space-x-2">
                 <AlertCircle className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-gray-700">
                   We typically respond within 24 hours during business days. For urgent issues, please call our support line.
                 </p>
               </div>
