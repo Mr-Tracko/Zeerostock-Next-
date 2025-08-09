@@ -12,7 +12,7 @@ import { CheckCircle, AlertCircle, Upload, FileText, XCircle, User } from 'lucid
 import BuyerSidebar from "../../../components/BuyerSidebar";
 
 // Type definitions
-type KycStatus = 'Verified' | 'Pending' | 'Rejected' | 'More Info Needed';
+type KycStatus = "Verified" | "Pending" | "Failed" | "Other" | "More Info Needed" | "Rejected" |null;
 
 interface Document {
   id: string;
@@ -22,9 +22,9 @@ interface Document {
 }
 
 interface BuyerKycStatusPageProps {
-  id: string;
-  name: string;
-  email: string;
+  id?: string;
+  name?: string;
+  email?: string;
 }
 
 const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
@@ -74,7 +74,7 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
     }
   };
 
-  const getStatusAlert = (): JSX.Element | null => {
+  const getStatusAlert = (KycStatus : KycStatus) => {
     switch (kycStatus) {
       case 'Verified':
         return (
@@ -96,8 +96,8 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
                 value={progressValue} 
                 className="w-full h-2 bg-slate-600 rounded-full"
                 style={{
-                  '--progress-foreground': 'linear-gradient(90deg, #10B981, #34D399)'
-                } as React.CSSProperties}
+                  ['--progress-foreground' as any]: 'linear-gradient(90deg, #10B981, #34D399)'
+                }}
               />
               <div className="flex justify-between mt-2 text-sm text-blue-200">
                 <span>Progress: {progressValue}%</span>
@@ -183,7 +183,7 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
               </CardHeader>
 
               <CardContent className="space-y-6 p-6">
-                {getStatusAlert()}
+                {/* {getStatusAlert()} */}
 
                 {(kycStatus === 'Pending' || kycStatus === 'More Info Needed') && (
                   <div className="space-y-5">
