@@ -82,11 +82,11 @@ const BuyerSidebar: React.FC = () => {
     ];
 
     const accountItems: SidebarItem[] = [
-        {
-            title: 'KYC Status',
-            icon: <FileCheck className="h-5 w-5 mr-3" />,
-            route: '/pages/buyer/KycStatus'
-        },
+        // {
+        //     title: 'KYC Status',
+        //     icon: <FileCheck className="h-5 w-5 mr-3" />,
+        //     route: '/pages/buyer/KycStatus'
+        // },
         {
             title: 'Profile Page',
             icon: <User className="h-5 w-5 mr-3" />,
