@@ -1,3 +1,265 @@
+// 'use client';
+
+// import React, { useState } from 'react';
+// import { useRouter } from 'next/navigation';
+// import Link from 'next/link';
+// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../components/ui/card';
+// import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../components/ui/table';
+// import { Button } from '../../../components/ui/button';
+// import { Input } from '../../../components/ui/input';
+// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../../components/ui/select';
+// import { Badge } from '../../../components/ui/badge';
+// import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../../../components/ui/dropdown-menu';
+// import { Search, Filter, MoreHorizontal, Eye, DollarSign, MessageSquare, AlertCircle } from 'lucide-react';
+// import AdminSidebar from '../../../components/AdminSidebar';
+
+// const AdminTransactionsPage = () => {
+//   const router = useRouter();
+
+//   // Dummy data for transactions
+//   const [transactions, setTransactions] = useState([
+//     {
+//       id: 'TXN-001',
+//       orderId: 'ORD-2024-001',
+//       buyer: 'John Smith',
+//       seller: 'MetalFab India',
+//       amount: '₹55,000',
+//       status: 'Completed',
+//       type: 'Sale',
+//       date: '2024-07-20',
+//     },
+//     {
+//       id: 'TXN-002',
+//       orderId: 'ORD-2024-002',
+//       buyer: 'Priya Sharma',
+//       seller: 'ElectroCorp Pvt Ltd',
+//       amount: '₹12,000',
+//       status: 'Processing',
+//       type: 'Sale',
+//       date: '2024-07-18',
+//     },
+//     {
+//       id: 'TXN-003',
+//       orderId: 'ORD-2024-003',
+//       buyer: 'Rahul Verma',
+//       seller: 'Precision Parts Co.',
+//       amount: '₹4,000',
+//       status: 'Disputed',
+//       type: 'Sale',
+//       date: '2024-07-15',
+//     },
+//     {
+//       id: 'TXN-004',
+//       orderId: 'ORD-2024-004',
+//       buyer: 'Amit Patel',
+//       seller: 'PolyChem Solutions',
+//       amount: '₹9,500',
+//       status: 'Refunded',
+//       type: 'Sale',
+//       date: '2024-07-10',
+//     },
+//     {
+//       id: 'TXN-005',
+//       orderId: 'ORD-2024-005',
+//       buyer: 'Sneha Gupta',
+//       seller: 'MechTools India',
+//       amount: '₹15,000',
+//       status: 'Completed',
+//       type: 'Sale',
+//       date: '2024-07-05',
+//     },
+//   ]);
+
+//   const [searchTerm, setSearchTerm] = useState('');
+//   const [filterType, setFilterType] = useState('all');
+//   const [filterStatus, setFilterStatus] = useState('all');
+
+//   const filteredTransactions = transactions.filter(transaction => {
+//     const matchesSearch = transaction.buyer.toLowerCase().includes(searchTerm.toLowerCase()) ||
+//       transaction.seller.toLowerCase().includes(searchTerm.toLowerCase()) ||
+//       transaction.orderId.toLowerCase().includes(searchTerm.toLowerCase()) ||
+//       transaction.id.toLowerCase().includes(searchTerm.toLowerCase());
+//     const matchesType = filterType === 'all' || transaction.type.toLowerCase() === filterType;
+//     const matchesStatus = filterStatus === 'all' || transaction.status.toLowerCase() === filterStatus;
+//     return matchesSearch && matchesType && matchesStatus;
+//   });
+
+//   const getStatusBadgeClasses = (status:string) => {
+//     switch (status) {
+//       case 'Completed': 
+//         return 'bg-green-900/30 text-green-400 border-green-500/30';
+//       case 'Processing': 
+//         return 'bg-blue-900/30 text-blue-400 border-blue-500/30';
+//       case 'Disputed': 
+//         return 'bg-red-900/30 text-red-400 border-red-500/30';
+//       case 'Refunded': 
+//         return 'bg-orange-900/30 text-orange-400 border-orange-500/30';
+//       default: 
+//         return 'bg-gray-700/50 text-gray-400 border-gray-500/30';
+//     }
+//   };
+
+//   const handleViewTransactionDetails = (transactionId:string) => {
+//     console.log('Viewing transaction details for:', transactionId);
+//     router.push(`/admin/transaction-details/${transactionId}`);
+//   };
+
+//   const handleResolveDispute = (transactionId:string) => {
+//     console.log('Resolving dispute for transaction:', transactionId);
+//     alert(`Initiating dispute resolution for transaction ${transactionId}.`);
+//   };
+
+//   const handleProcessRefund = (transactionId:string) => {
+//     console.log('Processing refund for transaction:', transactionId);
+//     alert(`Processing refund for transaction ${transactionId}.`);
+//   };
+
+//   return (
+//     <div className="min-h-screen bg-slate-900 font-inter flex">
+//       {/* Sidebar */}
+//       <div className="w-64 m-5">
+//         <AdminSidebar/>
+//       </div>
+
+//       {/* Main Content */}
+//       <div className="flex-1 p-6">
+//         <div className="max-w-7xl mx-auto space-y-8">
+//           <Card className="bg-slate-800 border-slate-700 rounded-xl shadow-lg p-6">
+//             <CardHeader className="pb-4">
+//               <CardTitle className="text-2xl font-bold text-white flex items-center">
+//                 <DollarSign className="h-6 w-6 mr-2 text-green-400" /> Transaction Management
+//               </CardTitle>
+//               <CardDescription className="text-gray-400">
+//                 Monitor all financial transactions and manage payment statuses.
+//               </CardDescription>
+//             </CardHeader>
+//             <CardContent>
+//               {/* Search and Filter Controls */}
+//               <div className="flex flex-col sm:flex-row gap-4 mb-6">
+//                 <div className="relative flex-grow">
+//                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+//                   <Input
+//                     type="text"
+//                     placeholder="Search by user, order ID, or transaction ID..."
+//                     className="w-full pl-9 rounded-lg bg-slate-900 border-slate-600 text-white placeholder:text-gray-400 focus:border-green-500 focus:ring-green-500/20"
+//                     value={searchTerm}
+//                     onChange={(e) => setSearchTerm(e.target.value)}
+//                   />
+//                 </div>
+//                 <Select value={filterType} onValueChange={setFilterType}>
+//                   <SelectTrigger className="w-[180px] rounded-lg bg-slate-900 border-slate-600 text-white focus:border-green-500 focus:ring-green-500/20">
+//                     <SelectValue placeholder="Filter by Type" />
+//                   </SelectTrigger>
+//                   <SelectContent className="bg-slate-800 border-slate-600">
+//                     <SelectItem value="all" className="text-white hover:bg-slate-700">All Types</SelectItem>
+//                     <SelectItem value="sale" className="text-white hover:bg-slate-700">Sale</SelectItem>
+//                     <SelectItem value="refund" className="text-white hover:bg-slate-700">Refund</SelectItem>
+//                   </SelectContent>
+//                 </Select>
+//                 <Select value={filterStatus} onValueChange={setFilterStatus}>
+//                   <SelectTrigger className="w-[180px] rounded-lg bg-slate-900 border-slate-600 text-white focus:border-green-500 focus:ring-green-500/20">
+//                     <SelectValue placeholder="Filter by Status" />
+//                   </SelectTrigger>
+//                   <SelectContent className="bg-slate-800 border-slate-600">
+//                     <SelectItem value="all" className="text-white hover:bg-slate-700">All Statuses</SelectItem>
+//                     <SelectItem value="completed" className="text-white hover:bg-slate-700">Completed</SelectItem>
+//                     <SelectItem value="processing" className="text-white hover:bg-slate-700">Processing</SelectItem>
+//                     <SelectItem value="disputed" className="text-white hover:bg-slate-700">Disputed</SelectItem>
+//                     <SelectItem value="refunded" className="text-white hover:bg-slate-700">Refunded</SelectItem>
+//                   </SelectContent>
+//                 </Select>
+//               </div>
+
+//               {filteredTransactions.length === 0 ? (
+//                 <div className="text-center py-12 text-gray-400">
+//                   <p className="text-lg mb-4">No transactions found matching your criteria.</p>
+//                 </div>
+//               ) : (
+//                 <div className="bg-slate-900 rounded-lg overflow-hidden">
+//                   <Table>
+//                     <TableHeader>
+//                       <TableRow className="border-slate-700 hover:bg-slate-800/50">
+//                         <TableHead className="text-gray-300 font-semibold w-32">Transaction ID</TableHead>
+//                         <TableHead className="text-gray-300 font-semibold w-32">Order ID</TableHead>
+//                         <TableHead className="text-gray-300 font-semibold min-w-36">Buyer</TableHead>
+//                         <TableHead className="text-gray-300 font-semibold min-w-40">Seller</TableHead>
+//                         <TableHead className="text-gray-300 font-semibold w-24 text-right">Amount</TableHead>
+//                         <TableHead className="text-gray-300 font-semibold w-28 text-center">Status</TableHead>
+//                         <TableHead className="text-gray-300 font-semibold w-20 text-center">Type</TableHead>
+//                         <TableHead className="text-gray-300 font-semibold w-28">Date</TableHead>
+//                         <TableHead className="text-gray-300 font-semibold w-20 text-center">Actions</TableHead>
+//                       </TableRow>
+//                     </TableHeader>
+//                     <TableBody>
+//                       {filteredTransactions.map((transaction) => (
+//                         <TableRow key={transaction.id} className="border-slate-700 hover:bg-slate-800/30 transition-colors">
+//                           <TableCell className="font-medium text-green-400 font-mono text-sm">{transaction.id}</TableCell>
+//                           <TableCell>
+//                             <Link 
+//                               href={`/admin/order-details/${transaction.orderId}`} 
+//                               className="text-blue-400 hover:text-blue-300 hover:underline font-mono text-sm transition-colors"
+//                             >
+//                               {transaction.orderId}
+//                             </Link>
+//                           </TableCell>
+//                           <TableCell className="text-gray-300 text-sm">{transaction.buyer}</TableCell>
+//                           <TableCell className="text-gray-300 text-sm max-w-0">
+//                             <div className="truncate pr-2" title={transaction.seller}>
+//                               {transaction.seller}
+//                             </div>
+//                           </TableCell>
+//                           <TableCell className="text-gray-300 text-sm text-right tabular-nums font-semibold">{transaction.amount}</TableCell>
+//                           <TableCell className="text-center">
+//                             <Badge className={`rounded-full px-3 py-1 text-xs font-medium border ${getStatusBadgeClasses(transaction.status)}`}>
+//                               {transaction.status}
+//                             </Badge>
+//                           </TableCell>
+//                           <TableCell className="text-gray-300 text-sm text-center">{transaction.type}</TableCell>
+//                           <TableCell className="text-gray-300 text-sm">{transaction.date}</TableCell>
+//                           <TableCell className="text-center">
+//                             <DropdownMenu>
+//                               <DropdownMenuTrigger asChild>
+//                                 <Button variant="ghost" className="h-8 w-8 p-0 text-gray-400 hover:text-white hover:bg-slate-700">
+//                                   <span className="sr-only">Open actions menu</span>
+//                                   <MoreHorizontal className="h-4 w-4" />
+//                                 </Button>
+//                               </DropdownMenuTrigger>
+//                               <DropdownMenuContent align="end" className="bg-slate-800 border-slate-600">
+//                                 <DropdownMenuItem onClick={() => handleViewTransactionDetails(transaction.id)} className="text-gray-300 hover:bg-slate-700 hover:text-white">
+//                                   <Eye className="h-4 w-4 mr-2" /> View Details
+//                                 </DropdownMenuItem>
+//                                 {transaction.status === 'Disputed' && (
+//                                   <DropdownMenuItem onClick={() => handleResolveDispute(transaction.id)} className="text-orange-400 hover:bg-slate-700 hover:text-orange-300">
+//                                     <AlertCircle className="h-4 w-4 mr-2" /> Resolve Dispute
+//                                   </DropdownMenuItem>
+//                                 )}
+//                                 {transaction.status === 'Completed' && (
+//                                   <DropdownMenuItem onClick={() => handleProcessRefund(transaction.id)} className="text-red-400 hover:bg-slate-700 hover:text-red-300">
+//                                     <DollarSign className="h-4 w-4 mr-2" /> Process Refund
+//                                   </DropdownMenuItem>
+//                                 )}
+//                                 <DropdownMenuItem onClick={() => console.log('Message', transaction.buyer, transaction.seller)} className="text-blue-400 hover:bg-slate-700 hover:text-blue-300">
+//                                   <MessageSquare className="h-4 w-4 mr-2" /> Message Parties
+//                                 </DropdownMenuItem>
+//                               </DropdownMenuContent>
+//                             </DropdownMenu>
+//                           </TableCell>
+//                         </TableRow>
+//                       ))}
+//                     </TableBody>
+//                   </Table>
+//                 </div>
+//               )}
+//             </CardContent>
+//           </Card>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default AdminTransactionsPage;
+
 'use client';
 
 import React, { useState } from 'react';
@@ -10,7 +272,7 @@ import { Input } from '../../../components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../../components/ui/select';
 import { Badge } from '../../../components/ui/badge';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../../../components/ui/dropdown-menu';
-import { Search, Filter, MoreHorizontal, Eye, DollarSign, MessageSquare, AlertCircle } from 'lucide-react';
+import { Search, Filter, MoreHorizontal, Eye, DollarSign, MessageSquare, AlertCircle, CheckCircle } from 'lucide-react';
 import AdminSidebar from '../../../components/AdminSidebar';
 
 const AdminTransactionsPage = () => {
@@ -84,175 +346,201 @@ const AdminTransactionsPage = () => {
     return matchesSearch && matchesType && matchesStatus;
   });
 
-  const getStatusBadgeClasses = (status:string) => {
+  const getStatusBadgeClasses = (status: string) => {
     switch (status) {
       case 'Completed': 
-        return 'bg-green-900/30 text-green-400 border-green-500/30';
+        return 'bg-green-900/30 text-green-900 border border-green-500/30';
       case 'Processing': 
-        return 'bg-blue-900/30 text-blue-400 border-blue-500/30';
+        return 'bg-yellow-900/30 text-yellow-900 border border-yellow-500/30';
       case 'Disputed': 
-        return 'bg-red-900/30 text-red-400 border-red-500/30';
+        return 'bg-red-900/30 text-red-900 border border-red-500/30';
       case 'Refunded': 
-        return 'bg-orange-900/30 text-orange-400 border-orange-500/30';
+        return 'bg-orange-900/30 text-orange-900 border border-orange-500/30';
       default: 
-        return 'bg-gray-700/50 text-gray-400 border-gray-500/30';
+        return 'bg-gray-900/30 text-gray-900 border border-gray-500/30';
     }
   };
 
-  const handleViewTransactionDetails = (transactionId:string) => {
+  const handleViewTransactionDetails = (transactionId: string) => {
     console.log('Viewing transaction details for:', transactionId);
     router.push(`/admin/transaction-details/${transactionId}`);
   };
 
-  const handleResolveDispute = (transactionId:string) => {
+  const handleResolveDispute = (transactionId: string) => {
     console.log('Resolving dispute for transaction:', transactionId);
     alert(`Initiating dispute resolution for transaction ${transactionId}.`);
   };
 
-  const handleProcessRefund = (transactionId:string) => {
+  const handleProcessRefund = (transactionId: string) => {
     console.log('Processing refund for transaction:', transactionId);
     alert(`Processing refund for transaction ${transactionId}.`);
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 font-inter flex">
+    <div className="min-h-screen bg-gradient-to-r from-green-100 to-white flex font-inter">
       {/* Sidebar */}
       <div className="w-64 m-5">
         <AdminSidebar/>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 p-6">
-        <div className="max-w-7xl mx-auto space-y-8">
-          <Card className="bg-slate-800 border-slate-700 rounded-xl shadow-lg p-6">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-2xl font-bold text-white flex items-center">
-                <DollarSign className="h-6 w-6 mr-2 text-green-400" /> Transaction Management
-              </CardTitle>
-              <CardDescription className="text-gray-400">
-                Monitor all financial transactions and manage payment statuses.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {/* Search and Filter Controls */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                <div className="relative flex-grow">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <Input
-                    type="text"
-                    placeholder="Search by user, order ID, or transaction ID..."
-                    className="w-full pl-9 rounded-lg bg-slate-900 border-slate-600 text-white placeholder:text-gray-400 focus:border-green-500 focus:ring-green-500/20"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
-                </div>
-                <Select value={filterType} onValueChange={setFilterType}>
-                  <SelectTrigger className="w-[180px] rounded-lg bg-slate-900 border-slate-600 text-white focus:border-green-500 focus:ring-green-500/20">
-                    <SelectValue placeholder="Filter by Type" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-slate-800 border-slate-600">
-                    <SelectItem value="all" className="text-white hover:bg-slate-700">All Types</SelectItem>
-                    <SelectItem value="sale" className="text-white hover:bg-slate-700">Sale</SelectItem>
-                    <SelectItem value="refund" className="text-white hover:bg-slate-700">Refund</SelectItem>
-                  </SelectContent>
-                </Select>
-                <Select value={filterStatus} onValueChange={setFilterStatus}>
-                  <SelectTrigger className="w-[180px] rounded-lg bg-slate-900 border-slate-600 text-white focus:border-green-500 focus:ring-green-500/20">
-                    <SelectValue placeholder="Filter by Status" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-slate-800 border-slate-600">
-                    <SelectItem value="all" className="text-white hover:bg-slate-700">All Statuses</SelectItem>
-                    <SelectItem value="completed" className="text-white hover:bg-slate-700">Completed</SelectItem>
-                    <SelectItem value="processing" className="text-white hover:bg-slate-700">Processing</SelectItem>
-                    <SelectItem value="disputed" className="text-white hover:bg-slate-700">Disputed</SelectItem>
-                    <SelectItem value="refunded" className="text-white hover:bg-slate-700">Refunded</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              {filteredTransactions.length === 0 ? (
-                <div className="text-center py-12 text-gray-400">
-                  <p className="text-lg mb-4">No transactions found matching your criteria.</p>
-                </div>
-              ) : (
-                <div className="bg-slate-900 rounded-lg overflow-hidden">
-                  <Table>
-                    <TableHeader>
-                      <TableRow className="border-slate-700 hover:bg-slate-800/50">
-                        <TableHead className="text-gray-300 font-semibold w-32">Transaction ID</TableHead>
-                        <TableHead className="text-gray-300 font-semibold w-32">Order ID</TableHead>
-                        <TableHead className="text-gray-300 font-semibold min-w-36">Buyer</TableHead>
-                        <TableHead className="text-gray-300 font-semibold min-w-40">Seller</TableHead>
-                        <TableHead className="text-gray-300 font-semibold w-24 text-right">Amount</TableHead>
-                        <TableHead className="text-gray-300 font-semibold w-28 text-center">Status</TableHead>
-                        <TableHead className="text-gray-300 font-semibold w-20 text-center">Type</TableHead>
-                        <TableHead className="text-gray-300 font-semibold w-28">Date</TableHead>
-                        <TableHead className="text-gray-300 font-semibold w-20 text-center">Actions</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {filteredTransactions.map((transaction) => (
-                        <TableRow key={transaction.id} className="border-slate-700 hover:bg-slate-800/30 transition-colors">
-                          <TableCell className="font-medium text-green-400 font-mono text-sm">{transaction.id}</TableCell>
-                          <TableCell>
-                            <Link 
-                              href={`/admin/order-details/${transaction.orderId}`} 
-                              className="text-blue-400 hover:text-blue-300 hover:underline font-mono text-sm transition-colors"
-                            >
-                              {transaction.orderId}
-                            </Link>
-                          </TableCell>
-                          <TableCell className="text-gray-300 text-sm">{transaction.buyer}</TableCell>
-                          <TableCell className="text-gray-300 text-sm max-w-0">
-                            <div className="truncate pr-2" title={transaction.seller}>
-                              {transaction.seller}
-                            </div>
-                          </TableCell>
-                          <TableCell className="text-gray-300 text-sm text-right tabular-nums font-semibold">{transaction.amount}</TableCell>
-                          <TableCell className="text-center">
-                            <Badge className={`rounded-full px-3 py-1 text-xs font-medium border ${getStatusBadgeClasses(transaction.status)}`}>
-                              {transaction.status}
-                            </Badge>
-                          </TableCell>
-                          <TableCell className="text-gray-300 text-sm text-center">{transaction.type}</TableCell>
-                          <TableCell className="text-gray-300 text-sm">{transaction.date}</TableCell>
-                          <TableCell className="text-center">
-                            <DropdownMenu>
-                              <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="h-8 w-8 p-0 text-gray-400 hover:text-white hover:bg-slate-700">
-                                  <span className="sr-only">Open actions menu</span>
-                                  <MoreHorizontal className="h-4 w-4" />
-                                </Button>
-                              </DropdownMenuTrigger>
-                              <DropdownMenuContent align="end" className="bg-slate-800 border-slate-600">
-                                <DropdownMenuItem onClick={() => handleViewTransactionDetails(transaction.id)} className="text-gray-300 hover:bg-slate-700 hover:text-white">
-                                  <Eye className="h-4 w-4 mr-2" /> View Details
-                                </DropdownMenuItem>
-                                {transaction.status === 'Disputed' && (
-                                  <DropdownMenuItem onClick={() => handleResolveDispute(transaction.id)} className="text-orange-400 hover:bg-slate-700 hover:text-orange-300">
-                                    <AlertCircle className="h-4 w-4 mr-2" /> Resolve Dispute
-                                  </DropdownMenuItem>
-                                )}
-                                {transaction.status === 'Completed' && (
-                                  <DropdownMenuItem onClick={() => handleProcessRefund(transaction.id)} className="text-red-400 hover:bg-slate-700 hover:text-red-300">
-                                    <DollarSign className="h-4 w-4 mr-2" /> Process Refund
-                                  </DropdownMenuItem>
-                                )}
-                                <DropdownMenuItem onClick={() => console.log('Message', transaction.buyer, transaction.seller)} className="text-blue-400 hover:bg-slate-700 hover:text-blue-300">
-                                  <MessageSquare className="h-4 w-4 mr-2" /> Message Parties
-                                </DropdownMenuItem>
-                              </DropdownMenuContent>
-                            </DropdownMenu>
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+      <div className="flex-1 p-6 space-y-8">
+        {/* Header */}
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-gradient-to-br from-gray-900 via-gray-800 to-gray-900 mb-2">Transaction Management</h1>
+            <p className="text-gray-800 text-base">Monitor all financial transactions and manage payment statuses.</p>
+          </div>
+          <div className="flex items-center space-x-4">
+            <Button variant="ghost" size="icon" className="rounded-full hover:bg-green-400">
+              <svg className="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405M18 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0m6 0H9" />
+              </svg>
+            </Button>
+            <div className="flex items-center space-x-3">
+              <img src="https://placehold.co/40x40/22C55E/FFFFFF?text=AD" alt="Admin" className="h-10 w-10 rounded-full border-2 border-green-500" />
+              <span className="font-semibold text-gray-800 hidden sm:block">Admin Panel</span>
+            </div>
+          </div>
         </div>
+
+        {/* System Status */}
+        <div className="bg-white border border-green-500/30 text-green-900 px-4 py-3 rounded-lg flex justify-between items-center backdrop-blur-sm">
+          <span><span className="font-semibold text-green-800">System Status: Active</span> - All payment systems are operational</span>
+          <CheckCircle className="h-5 w-5 text-green-400" />
+        </div>
+
+        {/* Search and Filter Controls */}
+        <Card className="bg-gradient-to-br from-purple-100 via-gray-100 to-purple-200 border-green-500/20 rounded-xl shadow-lg hover:border-green-500/30 transition-all">
+          <CardContent className="p-6">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="relative flex-grow">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-700" />
+                <Input
+                  type="text"
+                  placeholder="Search by user, order ID, or transaction ID..."
+                  className="w-full pl-9 rounded-lg bg-white border-gray-300 text-gray-900 placeholder:text-gray-600 focus:border-green-500 focus:ring-green-500/20"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </div>
+              <Select value={filterType} onValueChange={setFilterType}>
+                <SelectTrigger className="w-[180px] rounded-lg bg-white border-gray-300 text-gray-900 focus:border-green-500 focus:ring-green-500/20">
+                  <SelectValue placeholder="Filter by Type" />
+                </SelectTrigger>
+                <SelectContent className="bg-white border-gray-300">
+                  <SelectItem value="all" className="text-gray-900 hover:bg-gray-100">All Types</SelectItem>
+                  <SelectItem value="sale" className="text-gray-900 hover:bg-gray-100">Sale</SelectItem>
+                  <SelectItem value="refund" className="text-gray-900 hover:bg-gray-100">Refund</SelectItem>
+                </SelectContent>
+              </Select>
+              <Select value={filterStatus} onValueChange={setFilterStatus}>
+                <SelectTrigger className="w-[180px] rounded-lg bg-white border-gray-300 text-gray-900 focus:border-green-500 focus:ring-green-500/20">
+                  <SelectValue placeholder="Filter by Status" />
+                </SelectTrigger>
+                <SelectContent className="bg-white border-gray-300">
+                  <SelectItem value="all" className="text-gray-900 hover:bg-gray-100">All Statuses</SelectItem>
+                  <SelectItem value="completed" className="text-gray-900 hover:bg-gray-100">Completed</SelectItem>
+                  <SelectItem value="processing" className="text-gray-900 hover:bg-gray-100">Processing</SelectItem>
+                  <SelectItem value="disputed" className="text-gray-900 hover:bg-gray-100">Disputed</SelectItem>
+                  <SelectItem value="refunded" className="text-gray-900 hover:bg-gray-100">Refunded</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Transactions Table */}
+        <Card className="bg-gradient-to-br from-purple-100 via-gray-100 to-purple-200 border-slate-700 rounded-xl shadow-lg">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-lg font-semibold text-gray-900 flex items-center">
+              <DollarSign className="h-6 w-6 mr-2 text-green-500" />
+              All Transactions
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            {filteredTransactions.length === 0 ? (
+              <div className="text-center py-12 text-gray-600">
+                <p className="text-lg mb-4">No transactions found matching your criteria.</p>
+              </div>
+            ) : (
+              <div className="bg-white rounded-lg overflow-hidden">
+                <Table>
+                  <TableHeader>
+                    <TableRow className="bg-white hover:bg-slate-800/50">
+                      <TableHead className="text-gray-900 font-semibold">Transaction ID</TableHead>
+                      <TableHead className="text-gray-900 font-semibold">Order ID</TableHead>
+                      <TableHead className="text-gray-900 font-semibold">Buyer</TableHead>
+                      <TableHead className="text-gray-900 font-semibold">Seller</TableHead>
+                      <TableHead className="text-gray-900 font-semibold text-right">Amount</TableHead>
+                      <TableHead className="text-gray-900 font-semibold text-center">Status</TableHead>
+                      <TableHead className="text-gray-900 font-semibold text-center">Type</TableHead>
+                      <TableHead className="text-gray-900 font-semibold">Date</TableHead>
+                      <TableHead className="text-gray-900 font-semibold text-center">Actions</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredTransactions.map((transaction) => (
+                      <TableRow key={transaction.id} className="border-slate-700 hover:bg-slate-800/50">
+                        <TableCell className="font-medium text-gray-700 font-mono text-sm">{transaction.id}</TableCell>
+                        <TableCell>
+                          <Link 
+                            href={`/admin/order-details/${transaction.orderId}`} 
+                            className="text-green-800 hover:text-green-600 hover:underline font-mono text-sm transition-colors"
+                          >
+                            {transaction.orderId}
+                          </Link>
+                        </TableCell>
+                        <TableCell className="text-gray-700 text-sm">{transaction.buyer}</TableCell>
+                        <TableCell className="text-gray-700 text-sm max-w-0">
+                          <div className="truncate pr-2" title={transaction.seller}>
+                            {transaction.seller}
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-gray-700 text-sm text-right tabular-nums font-semibold">{transaction.amount}</TableCell>
+                        <TableCell className="text-center">
+                          <Badge className={`rounded-full px-3 py-1 text-xs font-semibold ${getStatusBadgeClasses(transaction.status)}`}>
+                            {transaction.status}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="text-gray-700 text-sm text-center">{transaction.type}</TableCell>
+                        <TableCell className="text-gray-700 text-sm">{transaction.date}</TableCell>
+                        <TableCell className="text-center">
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button variant="ghost" className="h-8 w-8 p-0 text-gray-600 hover:text-gray-800 hover:bg-gray-200">
+                                <span className="sr-only">Open actions menu</span>
+                                <MoreHorizontal className="h-4 w-4" />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end" className="bg-white border-gray-300">
+                              <DropdownMenuItem onClick={() => handleViewTransactionDetails(transaction.id)} className="text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                                <Eye className="h-4 w-4 mr-2" /> View Details
+                              </DropdownMenuItem>
+                              {transaction.status === 'Disputed' && (
+                                <DropdownMenuItem onClick={() => handleResolveDispute(transaction.id)} className="text-orange-700 hover:bg-gray-100 hover:text-orange-900">
+                                  <AlertCircle className="h-4 w-4 mr-2" /> Resolve Dispute
+                                </DropdownMenuItem>
+                              )}
+                              {transaction.status === 'Completed' && (
+                                <DropdownMenuItem onClick={() => handleProcessRefund(transaction.id)} className="text-red-700 hover:bg-gray-100 hover:text-red-900">
+                                  <DollarSign className="h-4 w-4 mr-2" /> Process Refund
+                                </DropdownMenuItem>
+                              )}
+                              <DropdownMenuItem onClick={() => console.log('Message', transaction.buyer, transaction.seller)} className="text-blue-700 hover:bg-gray-100 hover:text-blue-900">
+                                <MessageSquare className="h-4 w-4 mr-2" /> Message Parties
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            )}
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

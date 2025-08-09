@@ -121,7 +121,7 @@ const BuyerDashboardPage: React.FC = () => {
         {/* Dashboard Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {dashboardStats.map((stat: DashboardStat, index: number) => (
-            <Card key={index} className="bg-gradient-to-br from-purple-100 via-gray-300 to-purple-200 border-slate-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-slate-750">
+            <Card key={index} className="bg-gradient-to-br from-purple-100 via-gray-100 to-purple-200 border-slate-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-slate-750">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-bold text-gray-900">{stat.title}</CardTitle>
                 {stat.icon}
@@ -137,7 +137,7 @@ const BuyerDashboardPage: React.FC = () => {
         {/* Recent Activity and Recent Orders */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           
-          <Card className="bg-gradient-to-br from-purple-100 via-gray-300 to-purple-200 border-green-500/20 rounded-xl shadow-lg p-6 hover:border-green-500/30 transition-all">
+          <Card className="bg-gradient-to-br from-purple-100 via-gray-100 to-purple-200 border-green-500/20 rounded-xl shadow-lg p-6 hover:border-green-500/30 transition-all">
             <CardTitle className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
               <div className="w-1 h-6 bg-green-500 rounded-full mr-3"></div>
               Recent Activity
@@ -155,7 +155,7 @@ const BuyerDashboardPage: React.FC = () => {
             </ul>
           </Card>
 
-          <Card className="bg-gradient-to-br from-purple-100 via-gray-300 to-purple-200 border-slate-700 rounded-xl shadow-lg p-6">
+          <Card className="bg-gradient-to-br from-purple-100 via-gray-100 to-purple-200 border-slate-700 rounded-xl shadow-lg p-6">
             <div className="flex justify-between items-center mb-4">
               <CardTitle className="text-lg font-semibold text-gray-700">Recent Orders</CardTitle>
               <Button
@@ -166,10 +166,10 @@ const BuyerDashboardPage: React.FC = () => {
                 View All
               </Button>
             </div>
-            <div className="bg-gradient-to-br from-purple-300 via-gray-100 to-purple-400 rounded-lg overflow-hidden">
+            <div className="bg-white rounded-lg overflow-hidden">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-gradient-to-br from-purple-300 via-gray-100 to-purple-400 hover:bg-slate-800/50">
+                  <TableRow className="bg-white hover:bg-slate-800/50">
                     <TableHead className="text-gray-900 font-semibold">Order ID</TableHead>
                     <TableHead className="text-gray-900 font-semibold">Item</TableHead>
                     <TableHead className="text-gray-900 font-semibold">Amount</TableHead>
@@ -200,11 +200,11 @@ const BuyerDashboardPage: React.FC = () => {
 
         {/* Saved Searches and Watchlist */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Card className="bg-gradient-to-br from-purple-100 via-gray-300 to-purple-200 border-slate-700 rounded-xl shadow-lg p-6">
+          <Card className="bg-gradient-to-br from-purple-100 via-gray-100 to-purple-200 border-slate-700 rounded-xl shadow-lg p-6">
             <CardTitle className="text-lg font-semibold text-gray-900 mb-4">Saved Searches</CardTitle>
             <ul className="space-y-4">
               {savedSearches.map((search: SavedSearch) => (
-                <li key={search.id} className="flex justify-between items-center p-3 bg-gradient-to-br from-purple-300 via-gray-300 to-purple-400 rounded-lg hover:bg-slate-750 transition-colors">
+                <li key={search.id} className="flex justify-between items-center p-3 bg-white rounded-lg hover:bg-slate-750 transition-colors">
                   <div>
                     <p className="font-medium text-gray-700 text-sm">{search.query}</p>
                     <p className="text-sm text-green-800 mt-1">{search.description}</p>
@@ -222,11 +222,11 @@ const BuyerDashboardPage: React.FC = () => {
             </ul>
           </Card>
 
-          <Card className="bg-gradient-to-br from-purple-100 via-gray-300 to-purple-200 border-slate-700 rounded-xl shadow-lg p-6">
+          <Card className="bg-gradient-to-br from-purple-100 via-gray-100 to-purple-200 border-slate-700 rounded-xl shadow-lg p-6">
             <CardTitle className="text-lg font-semibold text-gray-900 mb-4">Watchlist</CardTitle>
             <ul className="space-y-4">
               {watchlistItems.map((item: WatchlistItem) => (
-                <li key={item.id} className="flex justify-between items-center p-3 bg-gradient-to-br from-purple-300 via-gray-300 to-purple-400 rounded-lg hover:bg-slate-750 transition-colors">
+                <li key={item.id} className="flex justify-between items-center p-3 bg-white rounded-lg hover:bg-slate-750 transition-colors">
                   <div>
                     <p className="font-medium text-gray-800 text-sm">{item.name}</p>
                     <p className="text-sm text-green-800 mt-1 font-semibold">{item.price}</p>
