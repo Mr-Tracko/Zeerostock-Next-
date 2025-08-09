@@ -581,7 +581,7 @@ const BuyerSettingsPage: React.FC = () => {
                 <p className="text-gray-700 mb-4">Payment method management coming soon!</p>
                 <Button 
                   variant="outline" 
-                  className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white transition-colors"
+                  className="border-green-600 text-white bg-green-600  transition-colors"
                 >
                   Add Payment Method
                 </Button>

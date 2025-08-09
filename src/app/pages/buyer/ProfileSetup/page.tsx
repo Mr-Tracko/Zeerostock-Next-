@@ -389,7 +389,7 @@ const BuyerProfilePage = () => {
               </Button>
               <Button
                 variant="outline"
-                className="flex-1 border-green-500/30 text-gray-900 hover:bg-green-50 rounded-md py-3 text-base font-semibold transition-colors"
+                className="flex-1 bg-white border-green-500/30 text-gray-900 hover:bg-green-50 rounded-md py-3 text-base font-semibold transition-colors"
                 onClick={handleViewKycStatus}
               >
                 View KYC Status

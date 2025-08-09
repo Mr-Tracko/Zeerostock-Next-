@@ -452,7 +452,7 @@ const RequestQuotePage: React.FC = () => {
               <div className="mt-8 bg-white border border-green-500/30 text-green-900 px-4 py-3 rounded-lg flex items-center backdrop-blur-sm">
                 <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
                 <p className="text-sm text-gray-700">
-                  Your request will be sent to relevant verified sellers who can provide competitive quotes. You'll receive responses directly to your email within 24-48 hours.
+                  Your request will be sent to relevant verified sellers who can provide competitive quotes. You will receive responses directly to your email within 24-48 hours.
                 </p>
               </div>
             </CardContent>
