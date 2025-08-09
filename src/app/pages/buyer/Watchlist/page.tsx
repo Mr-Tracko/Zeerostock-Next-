@@ -23,13 +23,8 @@ interface WatchlistItem {
   category: string;
 }
 
-interface BuyerWatchlistPageProps {
-  id: string;
-  name: string;
-  email: string;
-}
 
-const BuyerWatchlistPage: React.FC<BuyerWatchlistPageProps> = () => {
+const BuyerWatchlistPage = () => {
   const router = useRouter();
 
   const navigate = (path: string): void => {

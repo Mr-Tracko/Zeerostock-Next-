@@ -186,9 +186,9 @@ const AdminVerificationsPage = () => {
                       <TableCell>{verification.userRole}</TableCell>
                       <TableCell>{verification.documentType}</TableCell>
                       <TableCell>
-                        <Badge variant={getStatusBadgeVariant(verification.status)} className="rounded-full px-2 py-1">
+                        {/* <Badge variant={getStatusBadgeVariant(verification.status)} className="rounded-full px-2 py-1">
                           {verification.status}
-                        </Badge>
+                        </Badge> */}
                       </TableCell>
                       <TableCell>{verification.submissionDate}</TableCell>
                       <TableCell className="text-right">

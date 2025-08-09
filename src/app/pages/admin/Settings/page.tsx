@@ -94,23 +94,23 @@ const AdminSettingsPage = () => {
 
   const handleDeleteCategory = (id:string) => {
     if (window.confirm('Are you sure you want to delete this category and all its subcategories?')) {
-      setCategories(prev => prev.filter(cat => cat.id !== id));
+      // setCategories(prev => prev.filter(cat => cat.id !== id));
       alert('Category deleted!');
     }
   };
 
-  const handleDeleteSubcategory = (categoryName, subName) => {
-    if (window.confirm(`Are you sure you want to delete subcategory "${subName}" from "${categoryName}"?`)) {
-      setCategories(prev =>
-        prev.map(cat =>
-          cat.name === categoryName
-            ? { ...cat, subcategories: cat.subcategories.filter(sub => sub !== subName) }
-            : cat
-        )
-      );
-      alert('Subcategory deleted!');
-    }
-  };
+  // const handleDeleteSubcategory = (categoryName, subName) => {
+  //   if (window.confirm(`Are you sure you want to delete subcategory "${subName}" from "${categoryName}"?`)) {
+  //     setCategories(prev =>
+  //       prev.map(cat =>
+  //         cat.name === categoryName
+  //           ? { ...cat, subcategories: cat.subcategories.filter(sub => sub !== subName) }
+  //           : cat
+  //       )
+  //     );
+  //     alert('Subcategory deleted!');
+  //   }
+  // };
 
   return (
     <div className="min-h-screen bg-gray-900 flex">
@@ -253,7 +253,7 @@ const AdminSettingsPage = () => {
                             variant="ghost"
                             size="sm"
                             className="text-red-400 hover:text-red-300 hover:bg-red-900/20"
-                            onClick={() => handleDeleteCategory(cat.id)}
+                            // onClick={() => handleDeleteCategory(cat.id)}
                           >
                             <Trash2 className="h-4 w-4 mr-1" /> Delete Category
                           </Button>
@@ -267,7 +267,7 @@ const AdminSettingsPage = () => {
                                   variant="ghost"
                                   size="sm"
                                   className="text-red-400 hover:text-red-300 hover:bg-red-900/20"
-                                  onClick={() => handleDeleteSubcategory(cat.name, sub)}
+                                  // onClick={() => handleDeleteSubcategory(cat.name, sub)}
                                 >
                                   <Trash2 className="h-3 w-3" />
                                 </Button>
