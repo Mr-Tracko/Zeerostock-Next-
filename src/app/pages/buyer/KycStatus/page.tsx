@@ -12,7 +12,7 @@ import { CheckCircle, AlertCircle, Upload, FileText, XCircle, User } from 'lucid
 import BuyerSidebar from "../../../components/BuyerSidebar";
 
 // Type definitions
-type KycStatus = "Verified" | "Pending" | "Failed" | "Other" | "More Info Needed" | "Rejected" |null;
+type KycStatus = "Verified" | "Pending" | "Failed" | "Other" | "More Info Needed" | "Rejected" | null;
 
 interface Document {
   id: string;
@@ -74,7 +74,7 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
     }
   };
 
-  const getStatusAlert = (KycStatus : KycStatus) => {
+  const getStatusAlert = (KycStatus: KycStatus) => {
     switch (kycStatus) {
       case 'Verified':
         return (
@@ -92,12 +92,17 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
             <AlertCircle className="h-5 w-5 text-blue-400" />
             <AlertTitle className="text-blue-200 font-semibold ml-7">Verification Pending</AlertTitle>
             <div className="">
-              <Progress 
+              {/* <Progress 
                 value={progressValue} 
                 className="w-full h-2 bg-slate-600 rounded-full"
                 style={{
-                  ['--progress-foreground' as any]: 'linear-gradient(90deg, #10B981, #34D399)'
+                  // ['--progress-foreground' as any]: 'linear-gradient(90deg, #10B981, #34D399)'
+                  
                 }}
+              /> */}
+              <Progress
+                value={progressValue}
+                className="w-full h-2 bg-slate-600 rounded-full progress-custom"
               />
               <div className="flex justify-between mt-2 text-sm text-blue-200">
                 <span>Progress: {progressValue}%</span>
@@ -105,7 +110,7 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
               </div>
             </div>
             <AlertDescription className="text-blue-100 mt-2 ml-7">{kycMessage}</AlertDescription>
-            
+
           </Alert>
         );
       case 'Rejected':
@@ -116,9 +121,9 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
             <AlertDescription className="text-red-100 mt-2">
               {kycMessage} Please review and re-upload.
             </AlertDescription>
-            <Button 
-              variant="ghost" 
-              className="text-red-300 hover:text-red-100 hover:bg-red-600/30 mt-3 px-0 transition-all duration-300" 
+            <Button
+              variant="ghost"
+              className="text-red-300 hover:text-red-100 hover:bg-red-600/30 mt-3 px-0 transition-all duration-300"
               onClick={() => setKycStatus('More Info Needed')}
             >
               Re-upload Documents
@@ -133,9 +138,9 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
             <AlertDescription className="text-yellow-100 mt-2">
               {kycMessage} Please provide the additional details requested.
             </AlertDescription>
-            <Button 
-              variant="ghost" 
-              className="text-yellow-300 hover:text-yellow-100 hover:bg-yellow-600/30 mt-3 px-0 transition-all duration-300" 
+            <Button
+              variant="ghost"
+              className="text-yellow-300 hover:text-yellow-100 hover:bg-yellow-600/30 mt-3 px-0 transition-all duration-300"
               onClick={() => setKycStatus('Pending')}
             >
               Continue Upload
@@ -195,13 +200,13 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
 
                     <div className="space-y-3">
                       {documentsToUpload.map((doc: Document, index: number) => (
-                        <div 
-                          key={doc.id} 
+                        <div
+                          key={doc.id}
                           className="group relative bg-slate-600/50 border border-slate-500/50 rounded-lg p-4 hover:border-green-500/60 hover:bg-slate-600/70 transition-all duration-300"
                         >
                           <div className="flex items-center justify-between">
-                            <Label 
-                              htmlFor={`file-${doc.id}`} 
+                            <Label
+                              htmlFor={`file-${doc.id}`}
                               className="flex items-center space-x-3 flex-grow cursor-pointer group-hover:text-green-200 transition-colors duration-300"
                             >
                               <div className={`p-2 rounded-md ${doc.uploaded ? 'bg-green-500' : 'bg-slate-500'} transition-colors duration-300`}>
@@ -234,11 +239,10 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
                               type="button"
                               variant="outline"
                               size="sm"
-                              className={`ml-4 transition-all duration-300 ${
-                                doc.uploaded 
-                                  ? 'bg-green-600 hover:bg-green-700 text-white border-green-500' 
+                              className={`ml-4 transition-all duration-300 ${doc.uploaded
+                                  ? 'bg-green-600 hover:bg-green-700 text-white border-green-500'
                                   : 'bg-gray-800 hover:bg-green-600 text-gray-300 hover:text-white border-gray-700 hover:border-green-500'
-                              }`}
+                                }`}
                               onClick={() => handleFileInputClick(doc.id)}
                             >
                               <Upload className="h-4 w-4 mr-2" />
@@ -248,10 +252,9 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
 
                           {/* Progress indicator */}
                           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-800 rounded-b-xl overflow-hidden">
-                            <div 
-                              className={`h-full transition-all duration-500 ${
-                                doc.uploaded ? 'bg-gradient-to-r from-green-500 to-green-400 w-full' : 'w-0'
-                              }`}
+                            <div
+                              className={`h-full transition-all duration-500 ${doc.uploaded ? 'bg-gradient-to-r from-green-500 to-green-400 w-full' : 'w-0'
+                                }`}
                             ></div>
                           </div>
                         </div>
@@ -259,11 +262,10 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
                     </div>
 
                     <Button
-                      className={`w-full py-4 text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] ${
-                        documentsToUpload.some(doc => !doc.uploaded)
+                      className={`w-full py-4 text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] ${documentsToUpload.some(doc => !doc.uploaded)
                           ? 'bg-gray-800 hover:bg-gray-700 text-gray-400 cursor-not-allowed'
                           : 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white shadow-lg hover:shadow-green-500/25'
-                      }`}
+                        }`}
                       onClick={handleSubmitForReview}
                       disabled={documentsToUpload.some(doc => !doc.uploaded)}
                     >
@@ -287,8 +289,8 @@ const BuyerKycStatusPage: React.FC<BuyerKycStatusPageProps> = () => {
                     For any issues or questions regarding your verification, please contact support.
                   </p>
                   <div className="text-center">
-                    <Button 
-                      variant="ghost" 
+                    <Button
+                      variant="ghost"
                       className="text-green-400 hover:text-green-300 hover:bg-green-900/20 transition-all duration-300"
                       onClick={handleContactSupport}
                     >

@@ -69,7 +69,7 @@ const SellerKycStatusPage: React.FC = () => {
     }
   };
 
-  const getStatusAlert = (): JSX.Element | null => {
+  const getStatusAlert = () => {
     switch (kycStatus) {
       case 'Verified':
         return (

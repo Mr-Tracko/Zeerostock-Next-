@@ -23,6 +23,10 @@
   }
 }
 
+.progress-custom {
+  --progress-foreground: linear-gradient(90deg, #10B981, #34D399);
+}
+
 body {
   background: var(--background);
   /* color: var(--foreground); */
