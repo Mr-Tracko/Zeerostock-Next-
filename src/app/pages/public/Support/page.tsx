@@ -773,7 +773,7 @@ const SupportPage: React.FC = () => {
             <CardContent className="p-6 text-center">
               <Mail className="h-12 w-12 text-green-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Email Support</h3>
-              <p className="text-gray-600 mb-4">info@zeerostock.com</p>
+              <p className="text-gray-600 mb-4">contact@zeerostock.com</p>
               <Button className="w-full">Send Email</Button>
             </CardContent>
           </Card>
