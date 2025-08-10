@@ -130,7 +130,7 @@ const RegisterPage: React.FC = () => {
                 type="email"
                 placeholder="Enter your email"
                 required
-                className="rounded-lg border-gray-700 bg-white text-gray-500 placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/50 h-11"
+                className="rounded-lg border-gray-700 bg-white text-gray-500 placeholder:text-gray-400 focus:border-gray-900 focus:ring-gray-700 h-11"
                 value={formData.email}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('email', e.target.value)}
               />
@@ -143,7 +143,7 @@ const RegisterPage: React.FC = () => {
                 type="password"
                 placeholder="Create a password"
                 required
-                className="rounded-lg border-gray-700 bg-white text-gray-500 placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/50 h-11"
+                className="rounded-lg border-gray-700 bg-white text-gray-500 placeholder:text-gray-400 focus:border-gray-900 focus:ring-gray-700 h-11"
                 value={formData.password}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('password', e.target.value)}
               />
@@ -156,7 +156,7 @@ const RegisterPage: React.FC = () => {
                 type="password"
                 placeholder="Confirm your password"
                 required
-                className="rounded-lg border-gray-700 bg-white text-gray-500 placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/50 h-11"
+                className="rounded-lg border-gray-700 bg-white text-gray-500 placeholder:text-gray-400 focus:border-gray-900 focus:ring-gray-700 h-11"
                 value={formData.confirmPassword}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('confirmPassword', e.target.value)}
               />
@@ -165,7 +165,7 @@ const RegisterPage: React.FC = () => {
             <div className="space-y-2">
               <Label htmlFor="account-type" className="text-sm font-medium text-green-900">Account Type</Label>
               <Select onValueChange={handleAccountTypeChange} value={formData.accountType}>
-                <SelectTrigger id="account-type" className="rounded-lg border-gray-700 bg-white text-gray-500 h-11">
+                <SelectTrigger id="account-type" className="rounded-lg border-gray-700 bg-white text-gray-900 h-11">
                   <SelectValue placeholder="Select account type" />
                 </SelectTrigger>
                 <SelectContent className="bg-gray-800 border-gray-700">
@@ -176,19 +176,36 @@ const RegisterPage: React.FC = () => {
               </Select>
             </div>
 
-            {showAdminKey && (
+            {/* {showAdminKey && (
               <div className="space-y-2">
-                <Label htmlFor="admin-key" className="text-sm font-medium text-green-200">Admin Secret Key</Label>
+                <Label htmlFor="admin-key" className="text-sm font-bold text-green-900">Admin Secret Key</Label>
                 <Input
                   id="admin-key"
                   type="password"
                   placeholder="Enter admin secret key"
                   required
-                  className="rounded-lg border-gray-700 bg-gray-700 text-white placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/50 h-11"
+                  className="rounded-lg border-gray-700 bg-white text-white placeholder:text-gray-400 focus:border-gray-900 focus:ring-gray-700 h-11"
                   value={formData.adminKey}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('adminKey', e.target.value)}
                 />
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-gray-900">
+                  Enter the admin secret key to access admin portal
+                </p>
+              </div>
+            )} */}
+            {showAdminKey && (
+              <div className="space-y-2">
+                <Label htmlFor="admin-key" className="text-sm font-bold text-green-900">Admin Secret Key</Label>
+                <Input
+                  id="admin-key"
+                  type="password"
+                  placeholder="Enter admin secret key"
+                  required
+                  className="rounded-lg border-2 border-gray-300 bg-white text-gray-800 placeholder:text-gray-500 focus:border-green-500 focus:ring-2 focus:ring-green-200 focus:bg-green-50 transition-all duration-200 h-11 shadow-sm focus:shadow-md"
+                  value={formData.adminKey}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('adminKey', e.target.value)}
+                />
+                <p className="text-xs text-gray-600">
                   Enter the admin secret key to access admin portal
                 </p>
               </div>
@@ -202,7 +219,7 @@ const RegisterPage: React.FC = () => {
                 onCheckedChange={(checked: boolean) => handleInputChange('termsAccepted', checked)}
               />
               <Label htmlFor="terms" className="text-sm text-green-600">
-                I agree to the <a href="#" className="text-green-400 hover:text-green-300 hover:underline transition-colors">Terms & Conditions</a>
+                I agree to the <a href="#" className="text-green-800 hover:text-green-600 hover:underline transition-colors">Terms & Conditions</a>
               </Label>
             </div>
 
@@ -239,11 +256,11 @@ const RegisterPage: React.FC = () => {
             </Button>
           </div>
 
-          <p className="mt-6 text-center text-sm text-green-800">
+          <p className="mt-6 text-center text-sm text-black">
             Already have an account?{' '}
             <a
               href="#"
-              className="text-green-400 hover:text-green-300 hover:underline font-medium transition-colors"
+              className="text-green-800 hover:text-green-700 hover:underline font-medium transition-colors"
               onClick={handleLoginClick}
             >
               Login

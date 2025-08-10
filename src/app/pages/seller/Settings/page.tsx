@@ -840,7 +840,7 @@ const SellerSettingsPage: React.FC = () => {
               </div>
               <Button 
                 variant="outline" 
-                className="mt-4 border-green-600 text-green-600 hover:bg-green-600 hover:text-white transition-colors" 
+                className="mt-4 border-green-600 bg-green-600 text-white transition-colors" 
                 onClick={handleSupportNavigation}
               >
                 Update Bank Details (via Support)

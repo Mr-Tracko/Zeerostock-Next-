@@ -373,19 +373,19 @@ const ProductDetailPage: React.FC = () => {
   };
 
   // If product not found (in a real app, you'd fetch from API and handle 404)
-  if (!product.id) {
-    return (
-      <div className="min-h-screen bg-gradient-to-r from-green-100 to-white flex items-center justify-center font-inter">
-        <Card className="bg-gradient-to-br from-purple-100 via-gray-100 to-purple-200 border-slate-700 p-8 text-center rounded-xl shadow-lg">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">Product Not Found</h1>
-          <p className="text-gray-700 mb-6">The product you are looking for does not exist.</p>
-          <Button onClick={() => router.push('/search-inventory')} className="bg-green-500 hover:bg-green-600 text-white">
-            Back to Search
-          </Button>
-        </Card>
-      </div>
-    );
-  }
+  // if (!product.id) {
+  //   return (
+  //     <div className="min-h-screen bg-gradient-to-r from-green-100 to-white flex items-center justify-center font-inter">
+  //       <Card className="bg-gradient-to-br from-purple-100 via-gray-100 to-purple-200 border-slate-700 p-8 text-center rounded-xl shadow-lg">
+  //         <h1 className="text-3xl font-bold text-gray-900 mb-4">Product Not Found</h1>
+  //         <p className="text-gray-700 mb-6">The product you are looking for does not exist.</p>
+  //         <Button onClick={() => router.push('/search-inventory')} className="bg-green-500 hover:bg-green-600 text-white">
+  //           Back to Search
+  //         </Button>
+  //       </Card>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-100 to-white flex font-inter">

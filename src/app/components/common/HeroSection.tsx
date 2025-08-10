@@ -34,7 +34,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
   };
 
   return (
-    <section className="h-screen flex items-center relative bg-white py-12 sm:py-16 lg:py-20 overflow-hidden">
+    <section className="h-screen flex items-center relative bg-gradient-to-r from-green-100 to-white py-12 sm:py-16 lg:py-20 overflow-hidden">
       {/* Grid Pattern Overlay */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`

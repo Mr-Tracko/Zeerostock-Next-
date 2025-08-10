@@ -44,7 +44,7 @@ const LoginPage: React.FC = () => {
                 type="email"
                 placeholder="Enter your email"
                 required
-                className="rounded-lg border-gray-700 bg-white text-green-900 placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/50 h-11"
+                className="rounded-lg border-gray-700 bg-white text-green-900 placeholder:text-gray-400 focus:border-gray-900 focus:ring-gray-700 h-11"
               />
             </div>
             <div className="space-y-2">
@@ -54,7 +54,7 @@ const LoginPage: React.FC = () => {
                 type="password"
                 placeholder="Enter your password"
                 required
-                className="rounded-lg border-gray-700 bg-white text-gray-400 placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/50 h-11"
+                className="rounded-lg border-gray-700 bg-white text-gray-400 placeholder:text-gray-400 focus:border-gray-900 focus:ring-gray-700 h-11"
               />
             </div>
 
@@ -89,7 +89,7 @@ const LoginPage: React.FC = () => {
               <span className="w-full border-t border-gray-700" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-gray-800 px-3 text-gray-400 font-medium">Or continue with</span>
+              <span className="bg-gray-600 px-3 text-white font-medium">Or continue with</span>
             </div>
           </div>
 
@@ -112,7 +112,7 @@ const LoginPage: React.FC = () => {
             </Button>
           </div>
 
-          <p className="mt-6 text-center text-sm text-green-100">
+          <p className="mt-6 text-center text-sm text-black">
             Do not have an account?{' '}
             <a 
              

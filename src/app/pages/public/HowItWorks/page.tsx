@@ -332,14 +332,14 @@ const HowItWorksPage: React.FC = () => {
           <div className=" flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
             <button 
               className="w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-lg shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 bg-gradient-to-r from-gray-600 to-gray-500 hover:from-green-700 hover:to-green-600 text-white border-0" 
-              onClick={() => handleNavigation('/login')}
+              onClick={() => router.push('/pages/public/Login')}
             >
               <PlayCircle className="h-5 w-5 mr-2 inline" />
               Watch Demo
             </button>
             <button 
               className="w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-600 text-gray-500 hover:bg-green-400/10 bg-transparent hover:border-green-400/50" 
-              onClick={() => handleNavigation('/login')}
+              onClick={() => router.push('/pages/public/Login')}
             >
               Get Started Free
             </button>
@@ -397,13 +397,13 @@ const HowItWorksPage: React.FC = () => {
 
           {/* Story Type Selector */}
           <div className="flex justify-center mb-12">
-            <div className="bg-gray-800/60 backdrop-blur-sm rounded-lg p-2 shadow-lg border border-gray-700">
+            <div className="bg-gray-400/60 backdrop-blur-sm rounded-lg p-2 shadow-lg border border-gray-700">
               {Object.entries(userStories).map(([key, story]: [string, UserStory]) => (
                 <Button
                   key={key}
                   variant={activeStory === key ? 'default' : 'ghost'}
                   onClick={() => setActiveStory(key as ActiveStoryType)}
-                  className={`px-6 py-3 text-sm font-medium ${activeStory === key ? 'bg-green-600 text-white hover:bg-green-700' : 'text-gray-300 hover:text-white hover:bg-gray-700'}`}
+                  className={`px-6 py-3 text-sm font-medium ${activeStory === key ? 'bg-green-600 text-white hover:bg-green-700' : 'text-green-900  hover:bg-white'}`}
                 >
                   {story.title.split(' ')[0]}
                 </Button>
@@ -412,12 +412,12 @@ const HowItWorksPage: React.FC = () => {
           </div>
 
           {/* Story Content */}
-          <div className="bg-gray-800/60 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden border border-gray-700">
+          <div className="bg-gray-400/60 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden border border-gray-700">
             {/* Story Header */}
-            <div className="bg-gradient-to-r from-green-600 to-green-700 text-white p-8">
+            <div className="bg-gradient-to-r from-green-400 to-green-500 text-white p-8">
               <div className="max-w-4xl mx-auto">
-                <h3 className="text-3xl font-bold mb-2">{currentStory.title}</h3>
-                <p className="text-xl opacity-90 mb-4">{currentStory.subtitle}</p>
+                <h3 className="text-4xl font-extrabold mb-2 text-gray-700">{currentStory.title}</h3>
+                <p className="text-xl opacity-90 mb-4 text-gray-600">{currentStory.subtitle}</p>
                 <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
                   <p className="font-semibold mb-2">{currentStory.persona}</p>
                   <p className="opacity-90">{currentStory.scenario}</p>
@@ -428,18 +428,18 @@ const HowItWorksPage: React.FC = () => {
             {/* Journey Steps */}
             <div className="p-8 ">
               <div className="max-w-4xl mx-auto">
-                <h4 className="text-2xl font-bold text-white mb-8 text-center">The Journey</h4>
+                <h4 className="text-4xl font-extrabold text-gray-900 mb-8 text-center">The Journey</h4>
                 <div className="space-y-8">
                   {currentStory.journey.map((step: JourneyStep, index: number) => (
                     <div key={index} className="flex items-start gap-6">
                       <div className="flex-shrink-0">
-                        <div className="bg-gradient-to-r from-green-500 to-green-600 w-12 h-12 rounded-full flex items-center justify-center text-white">
+                        <div className="bg-gradient-to-r from-green-500 to-green-600 w-12 h-12 rounded-full flex items-center justify-center text-gray-700">
                           {step.icon}
                         </div>
                       </div>
                       <div className="flex-grow">
-                        <h5 className="text-xl font-semibold text-white mb-2">{step.step}</h5>
-                        <p className="text-gray-300 mb-2">{step.action}</p>
+                        <h5 className="text-xl font-semibold text-gray-700 mb-2">{step.step}</h5>
+                        <p className="text-gray-700 mb-2">{step.action}</p>
                         <p className="text-sm text-black font-medium bg-green-400/10 p-3 rounded-lg border border-green-400/20">
                           ✓ {step.outcome}
                         </p>
@@ -450,12 +450,12 @@ const HowItWorksPage: React.FC = () => {
 
                 {/* Results */}
                 <div className="mt-12 bg-gradient-to-r from-green-400/10 to-green-600/10 rounded-xl p-8 border border-green-400/20">
-                  <h5 className="text-xl font-bold text-white mb-6 text-center">Results Achieved</h5>
+                  <h5 className="text-xl font-bold text-gray-900 mb-6 text-center">Results Achieved</h5>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {Object.entries(currentStory.results).map(([key, value]: [string, string]) => (
                       <div key={key} className="text-center">
                         <div className="text-2xl font-bold text-green-800 mb-2">{value}</div>
-                        <div className="text-gray-300 capitalize">{key.replace('_', ' ')}</div>
+                        <div className="text-gray-900 capitalize">{key.replace('_', ' ')}</div>
                       </div>
                     ))}
                   </div>
@@ -571,10 +571,10 @@ const HowItWorksPage: React.FC = () => {
               Ready to join most trusted inventory marketplace of India?
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-semibold shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300" onClick={() => handleNavigation('/login')}>
+              <Button className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-semibold shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300" onClick={() => router.push('/pages/public/Login')}>
                 Become a Partner
               </Button>
-              <Button variant="outline" className="px-8 py-3 border-2 border-green-400/30 text-green-400 hover:bg-green-400/10 bg-transparent hover:border-green-400/50 font-semibold transition-all duration-300" onClick={() => handleNavigation('/login')}>
+              <Button variant="outline" className="px-8 py-3 border-2 border-green-400/30 text-green-400 hover:bg-green-400/10 bg-transparent hover:border-green-400/50 font-semibold transition-all duration-300" onClick={() => router.push('/pages/public/Login')}>
                 View Case Studies
               </Button>
             </div>
