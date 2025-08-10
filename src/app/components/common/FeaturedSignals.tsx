@@ -164,7 +164,7 @@ const FeaturedCategories: React.FC = () => {
             Do not see your category? We have thousands more inventory types available.
           </p>
           <button
-            className="px-8 py-3 bg-gradient-to-r from-gray-600 to-gray-800 hover:from-gray-700 hover:to-gray-800 text-white font-semibold rounded-lg shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300"
+            className="w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-green-400/30 text-green-400 hover:bg-green-600/10 bg-transparent hover:border-green-400/50"
             onClick={() => router.push('/pages/public/Login')}
           >
             View All Categories

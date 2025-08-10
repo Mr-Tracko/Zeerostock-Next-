@@ -27,14 +27,14 @@ const Footer: React.FC<FooterProps> = () => {
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-3">
               <div
-                className=" cursor-pointer hover:shadow-lg transition-all duration-200 inline-block"
+                className="bg-white p-1 cursor-pointer hover:shadow-lg transition-all duration-200 inline-block"
                 style={{ borderRadius: '10px' }}
               >
                 <img
-                  src="/logowithbg.png"
+                  src="/logo3.png"
                   alt="ZeeroStock Logo"
                   className="h-20 w-42 object-contain"
-                  style={{ borderRadius: '10px' }}
+                  style={{ borderRadius: '8px' }}
                 />
               </div>
               {/* <span className="text-blue-400 font-bold text-2xl">ZeeroStock</span> */}
@@ -81,7 +81,7 @@ const Footer: React.FC<FooterProps> = () => {
             <ul className="space-y-2">
               <li>
                 <a
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 cursor-pointer"
                   onClick={() => router.push('/pages/public/HowItWorks')}
                 >
                   How It Works
@@ -89,7 +89,7 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
               <li>
                 <a
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200"
+                  className="text-gray-300 hover:text-white cursor-pointer text-sm transition-colors duration-200"
                   onClick={() => router.push('/pages/public/Login')}
                 >
                   For Sellers
@@ -97,7 +97,7 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
               <li>
                 <a
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200"
+                  className="text-gray-300 hover:text-white cursor-pointer text-sm transition-colors duration-200"
                   onClick={() => router.push('/pages/public/Login')}
                 >
                   For Buyers
@@ -105,7 +105,7 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
               <li>
                 <a
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200"
+                  className="text-gray-300 hover:text-white cursor-pointer text-sm transition-colors duration-200"
                   onClick={() => router.push('/pages/public/RoiCalculator')}
                 >
                   Roi Calculator
@@ -113,7 +113,7 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
               <li>
                 <a
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200"
+                  className="text-gray-300 hover:text-white cursor-pointer text-sm transition-colors duration-200"
                   onClick={() => router.push('/pages/public/Support')}
                 >
                   Support
@@ -165,15 +165,15 @@ const Footer: React.FC<FooterProps> = () => {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Contact Us</h3>
             <address className="not-italic space-y-2 text-sm">
-              <p>123 ZeeroStock Lane,</p>
-              <p>Industrial Area, Chandigarh, India</p>
+              <p>Mahatma Nagar</p>
+              <p>Nashik , 422007</p>
               <p>
                 Email: {' '}
                 <a
                   href="mailto:info@zeerostock.com"
                   className="text-gray-300 hover:text-white transition-colors duration-200"
                 >
-                  info@zeerostock.com
+                  contact@zeerostock.com
                 </a>
               </p>
               <p>
@@ -182,7 +182,7 @@ const Footer: React.FC<FooterProps> = () => {
                   href="tel:+911234567890"
                   className="text-gray-300 hover:text-white transition-colors duration-200"
                 >
-                  +91 12345 67890
+                  +91 91758 93763
                 </a>
               </p>
             </address>
@@ -190,7 +190,7 @@ const Footer: React.FC<FooterProps> = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-700 mt-10 pt-8 text-center text-sm text-gray-500">
+        <div className="border-t border-gray-700 mt-10 pt-8 font-bold text-center text-sm text-gray-400">
           © {new Date().getFullYear()} ZeeroStock. All rights reserved.
         </div>
       </div>

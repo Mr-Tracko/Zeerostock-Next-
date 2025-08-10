@@ -482,13 +482,13 @@ const NewArrivals: React.FC<NewArrivalsProps> = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <button 
-              className="px-6 py-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white  rounded-lg shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300" 
+              className="w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-green-400/30 text-green-400 hover:bg-green-600/10 bg-transparent hover:border-green-400/50" 
               onClick={() => {router.push('/pages/public/Login')}}
             >
               View All New Arrivals
             </button>
             <button 
-              className="px-6 py-2 border-2 border-green-500/50 text-green-800 hover:bg-green-500/10 bg-transparent hover:border-green-500/70 font-semibold rounded-lg transition-all duration-300" 
+              className="w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-green-400/30 text-green-400 hover:bg-green-600/10 bg-transparent hover:border-green-400/50"
               onClick={() => {router.push('/pages/public/Login')}}
             >
               Set Price Alerts
