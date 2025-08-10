@@ -763,7 +763,7 @@ const SupportPage: React.FC = () => {
             <CardContent className="p-6 text-center">
               <Phone className="h-12 w-12 text-green-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Phone Support</h3>
-              <p className="text-gray-600 mb-2">+91 1800-123-4567</p>
+              <p className="text-gray-600 mb-2">+91 91758 93763</p>
               <p className="text-sm text-gray-600 mb-4">Mon-Fri: 9 AM - 6 PM IST</p>
               <Button className="w-full">Call Now</Button>
             </CardContent>
