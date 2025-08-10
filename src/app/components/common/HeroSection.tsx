@@ -273,7 +273,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
                 <button
                   className="px-4 py-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white rounded-full transition-all duration-200 text-sm font-medium shadow-md shadow-green-500/20"
                   aria-label="Search"
-                  // onClick={handleSearchSubmit}
+                  onClick = {() => {router.push('/pages/public/Login')}}
                 >
                   Search
                 </button>
