@@ -57,13 +57,13 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
             <div className="no-underline flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 ml-10">
               <button
-                className="decoration-none w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-lg shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white border-0"
+                className="decoration-none w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-lg shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-800 text-white border-0"
                 onClick={() => router.push('/pages/public/Login')}
               >
                 Sell Excess Inventory
               </button>
               <button
-                className="w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-green-400/30 text-green-400 hover:bg-green-400/10 bg-transparent hover:border-green-400/50"
+                className="w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-green-400/30 text-green-400 hover:bg-green-600/10 bg-transparent hover:border-green-400/50"
                 onClick={() => router.push('/pages/public/Login')}
               >
                 Browse Inventory
